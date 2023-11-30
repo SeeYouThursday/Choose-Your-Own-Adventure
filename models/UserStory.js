@@ -25,13 +25,18 @@ UserStory.init(
         key: 'id',
       },
     },
+    story_line: {
+      type: DataTypes.STRING,
+      // [1,2,4,5,6,7,4]
+      //TODO: Get feedback on story_line
+    },
   },
   {
     sequelize,
     timestamps: false,
     underscored: true,
     freezeTableName: true,
-    modelName: 'comment',
+    modelName: 'userstory',
   }
 );
 
