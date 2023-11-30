@@ -12,11 +12,11 @@ Story.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    Option1: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    content: {
+    Option2: {
       type: DataTypes.STRING,
       allowNull: false,
     },

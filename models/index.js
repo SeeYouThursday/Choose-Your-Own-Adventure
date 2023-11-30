@@ -8,6 +8,10 @@ User.hasMany(StoryLine, {
 });
 
 StoryLine.belongsTo(User, {
+  foreignKey: ''
+})
+
+StoryLine.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
