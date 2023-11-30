@@ -1,15 +1,18 @@
-const { User, Story, UserStory } = require('../models');
+// const { User, Story, StoryLine } = require('../models');
+const User = require('./User');
+const Story = require('./Story');
+const StoryLine = require('./StoryLine');
 
-User.hasMany(UserStory, {
+User.hasMany(StoryLine, {
   foreignKey: 'user_id',
 });
 
-UserStory.belongsTo(User, {
+StoryLine.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
-UserStory.hasMany(Story, {
+StoryLine.hasMany(Story, {
   foreignKey: 'story_id',
 });
 
-module.exports = { User, Story, UserStory };
+module.exports = { User, Story, StoryLine };
