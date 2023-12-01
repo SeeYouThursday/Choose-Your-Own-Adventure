@@ -1,0 +1,17 @@
+#game {
+    width: 50%;
+    margin: auto;
+    margin-top: 120px;
+}
+
+p {
+    margin: 30px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+button {
+    margin: 20px;
+    font-size: 16px;
+    display: block;
+}
