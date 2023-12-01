@@ -1,19 +1,43 @@
-<main class="form-signin text-center">
-  <form id="signup-form">
-    <h1 class="h3 mb-3 fw-normal text-light">sign up today!</h1>
-    {{!-- will update with image --}}
+<main class='form-signin text-center'>
+  <form id='signup-form'>
+    <h1 class='h3 mb-3 fw-normal text-light'>sign up today!</h1>
+    {{! will update with image }}
 
-    {{!-- username & password forms --}}
-    <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="username-signup" placeholder="username" autofocus="true">
+    {{! username & password forms }}
+    <div class='form-floating mb-3'>
+      <input
+        type='text'
+        class='form-control'
+        id='username-signup'
+        placeholder='username'
+        autofocus='true'
+      />
     </div>
-    <div class="form-floating mb-3">
-      <input type="password" class="form-control" id="password-signup" placeholder="password" autofocus="true">
+    <div class='form-floating mb-3'>
+      <input
+        type='password'
+        class='form-control'
+        id='password-signup'
+        placeholder='password'
+        autofocus='true'
+      />
     </div>
-
-    <button class="w-100 btn btn-lg mb-3 text-light" style="background-color: yellow;" type="submit">signup</button>
-    <a class="login-link text-light" href="/login">login</a>
+    <div class='form-floating mb-3'>
+      <input
+        type='email'
+        class='form-control'
+        id='email-signup'
+        placeholder='email@hellothere.com'
+        autofocus='true'
+      />
+    </div>
+    <button
+      class='w-100 btn btn-lg mb-3 text-light'
+      style='background-color: yellow;'
+      type='submit'
+    >signup</button>
+    <a class='login-link text-light' href='/login'>login</a>
   </form>
 </main>
 
-<script src="/js/signup.js"></script>
+<script src='/js/signup.js'></script>
