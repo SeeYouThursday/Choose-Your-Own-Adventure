@@ -18,17 +18,8 @@ StoryLine.init(
         key: 'id',
       },
     },
-    story_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'story',
-        key: 'id',
-      },
-    },
     story_line: {
       type: DataTypes.STRING,
-      // [1,2,4,5,6,7,4]
-      //TODO: Get feedback on story_line
     },
   },
   {
