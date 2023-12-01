@@ -1,0 +1,8 @@
+{{!-- detail in partial view --}}
+<article class="story">
+    {{#each story as |story| }}
+        {{!-- will check data name for story --}}
+        {{!-- partials view --}}
+        {{> home-detail story}}
+    {{/each}}
+</article>
