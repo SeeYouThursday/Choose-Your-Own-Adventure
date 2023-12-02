@@ -35,7 +35,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     const stories = myStories.get({ plain: true });
 
-    res.render('dashboard', { ...stories, logged_in: req.session.logged_in });
+    res.render('test-dashboard', {
+      ...stories,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -56,6 +59,35 @@ router.get('/signup', (req, res) => {
     return;
   }
   res.render('signup');
+});
+
+//Get Specific Story Choice Set
+router.get('/storyline/:id', async (req, res) => {
+  try {
+    const storyData = await StoryLine.findByPk(req.params.id, {});
+
+    const story = storyData.get({ plain: true });
+
+    res.render('story', { ...story, logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//Get Specific Story Choice Set //TODO make sure render is set properly
+router.get('/story/:id', async (req, res) => {
+  try {
+    const storyData = await Story.findByPk(req.params.id, {});
+
+    const story = storyData.get({ plain: true });
+
+    res.render('test-new-story', {
+      ...story,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
