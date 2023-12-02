@@ -41,13 +41,6 @@ User.init(
         isEmail: true,
       },
     },
-    story_line: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'storyline',
-        key: 'id',
-      },
-    },
   },
   {
     hooks: {
