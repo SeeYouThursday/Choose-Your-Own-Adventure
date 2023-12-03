@@ -3,11 +3,13 @@ const router = require('express').Router();
 const { StoryLine } = require('../../models');
 
 //Create new story-line
-router.post('/start', async (req, res) => {
-  console.log(req.body);
+router.post('/start', withAuth, async (req, res) => {
+  const title = req.body.title;
+  const story_line = req.body.story_line;
   try {
     const storyData = await StoryLine.create({
-      ...req.body,
+      title,
+      story_line,
       user_id: req.session.user_id,
     });
 
