@@ -11,24 +11,19 @@ StoryLine.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    story_line: {
+      type: DataTypes.STRING,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
       },
-    },
-    story_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'story',
-        key: 'id',
-      },
-    },
-    story_line: {
-      type: DataTypes.STRING,
-      // [1,2,4,5,6,7,4]
-      //TODO: Get feedback on story_line
     },
   },
   {
