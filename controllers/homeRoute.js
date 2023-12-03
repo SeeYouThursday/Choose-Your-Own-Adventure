@@ -4,22 +4,18 @@ const { User, Story, StoryLine } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    // const postData = await Post.findAll({
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ['username'],
-    //     },
-    //     {
-    //       model: Comment,
-    //       attributes: ['content'],
-    //       include: [{ model: User, attributes: ['username'] }],
-    //     },
-    //   ],
-    // });
+    if (req.session.logged_in) {
+      res.redirect('/home');
+      return;
+    }
+    res.render('landingpage', { logged_in: req.session.logged_in });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-    // const posts = postData.map((post) => post.get({ plain: true }));
-
+router.get('/home', async (req, res) => {
+  try {
     res.render('homepage', { logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
@@ -34,7 +30,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
 
     const stories = myStories.get({ plain: true });
-
+    console.log(stories);
     res.render('test-dashboard', {
       ...stories,
       logged_in: req.session.logged_in,
@@ -62,13 +58,13 @@ router.get('/signup', (req, res) => {
 });
 
 //Get Specific Story Choice Set
-router.get('/storyline/:id', async (req, res) => {
+router.get('/storyline/:id', withAuth, async (req, res) => {
   try {
     const storyData = await StoryLine.findByPk(req.params.id, {});
 
-    const story = storyData.get({ plain: true });
-
-    res.render('story', { ...story, logged_in: req.session.logged_in });
+    const storyline = storyData.get({ plain: true });
+    //TODO: replace with new handlebars file after complete
+    res.render('story', { ...storyline, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
