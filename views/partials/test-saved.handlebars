@@ -1,0 +1,11 @@
+<div>
+  <h4>Saved Games</h4>
+  {{! use cards here? }}
+  {{#if storylines.length}}
+    {{#each storylines as |story|}}
+      <button data-id='{{story.storylines}}'>{{story.title}}</button>
+      {{! future dev: include user description or auto descript? OR have a drop down that shows the current storyline contents }}
+    {{/each}}
+    {{! <script src='js/saved_story.js'></script> }}
+  {{/if}}
+</div>

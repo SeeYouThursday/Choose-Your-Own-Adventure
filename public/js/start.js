@@ -13,7 +13,8 @@ const startNewAdventureHandler = async (event) => {
       });
       console.log(title, storyline);
       if (response.ok) {
-        // response.status(201).json({ message: 'Adventure started!' });
+        response.status(201).json({ message: 'Adventure started!' });
+        //TODO: Redirect to the story handling hb pages
         // document.location.replace('/dashboard');
       }
     }
