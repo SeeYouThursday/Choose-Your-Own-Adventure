@@ -1,23 +1,28 @@
-const startNewAdventureHandler = async (req, res) => {
+const startNewAdventureHandler = async (event) => {
+  event.preventDefault();
   try {
-    const title = document.getElementById('title').value.trim();
+    const title = document.getElementById('story-title').value.trim();
+    const storyline = 'Begin adventure!';
 
-    if (title) {
-      const response = await fetch('/api/start', {
+    console.log(title, storyline);
+    if (title && storyline) {
+      const response = await fetch('api/storyline/start', {
         method: 'POST',
-        body: JSON.stringify({ title }),
+        body: JSON.stringify({ title, storyline }),
         headers: { 'Content-Type': 'application/json' },
       });
-
+      console.log(title, storyline);
       if (response.ok) {
-        res.status(201).json({ message: 'Adventure started!' });
-        document.location.replace('/dashboard');
+        // response.status(201).json({ message: 'Adventure started!' });
+        // document.location.replace('/dashboard');
       }
     }
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log(error);
   }
 };
 
 // Event Listeners
-// document.querySelector('#start').addEventListener('click', startBtnHandler);
+document
+  .querySelector('#start-story')
+  .addEventListener('submit', startNewAdventureHandler);
