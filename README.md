@@ -72,3 +72,35 @@
 </p> -->
 
 #
+
+### ![installation](./luck/branding/2.png)
+
+The application is invoked using the following commands:
+
+##### *Clone the repository in your local development enviornment.*
+
+```
+git clone https://github.com/seeyouthursday/choose-your-own-adventure.git
+```
+##### **Create a *.env* with your information**
+
+##### *Navigate to the command line and input:*
+
+```javascript
+npm i :: express, mysql2, dotenv --save, sequelize, nodemon --save-dev, handlebars, express-session, express-handlebars, bcypt, connect-session-sequelize
+```
+```javascript
+mysql -u root -p
+```
+```mysql
+SOURCE db/schema.sql;
+quit
+```
+```javascript
+npm run seed
+```
+```javascript
+nodemon server
+```
+
+#
