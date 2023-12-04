@@ -1,0 +1,12 @@
+{{#if stories.length}}
+<section>
+  <h2 class="text-left"><img src="/images/dashboard.png" height="100px"></h2>
+  {{!-- add image --}}
+    {{#each stories as |story|}}
+    {{!-- partials view --}}
+      {{> dash-detail story}}
+    {{/each}}
+</section>
+{{/if}}
+
+<button type="submit" class="btn"><a class="link text-light" href="/dashboard/new">new story</a></button>
