@@ -1,16 +1,19 @@
 let continuingStory = [];
+const getStoryId = () => {
+  const id = document.getElementById('save-story');
+  let currentId = id.getAttribute('data-id');
+  console.log(id);
+  return currentId;
+};
 
 const getStory = async () => {
   try {
     const id = document.getElementById('save-story').getAttribute('data-id');
     console.log(id);
-    const response = await fetch(
-      `${window.location.origin}/api/storyline/${id}`,
-      {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
+    const response = await fetch(`${window.location.origin}/api/story/${id}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
     console.log(response);
     if (response.ok) {
       const data = await response.json();
@@ -58,6 +61,7 @@ const savedStoryHandler = async (event) => {
       method: 'PUT',
       body: JSON.stringify({
         story_line: continuingStory,
+        story_id: parseInt(currentId),
       }),
       headers: { 'Content-Type': 'application/json' },
     });
@@ -70,10 +74,39 @@ const savedStoryHandler = async (event) => {
   }
 };
 
+// TODO: WIP logic for next choice
+nextChoiceHandler = async (event) => {
+  event.preventDefault();
+  const id = document.getElementById('save-story');
+  let currentId = id.getAttribute('data-id');
+  console.log(id);
+  try {
+    const response = await fetch(`/api/story/${id}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(response);
+    if (response.ok) {
+      const data = await response.json();
+      console.log('this data', data);
+      if (data.story_line !== null) {
+        console.log('passed if statement');
+      }
+    }
+    id.setAttribute('data-id', ++currentId);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 getStory();
 // Event Listeners
 
 //Waiting until the user clicks 'Save' to save the story
 document
   .querySelector('#save-story')
-  .addEventListener('click', savedStoryHandler);
+  .addEventListener('submit', savedStoryHandler);
+
+document.querySelectorAll('.next-choice').forEach((button) => {
+  button.addEventListener('click', nextChoiceHandler);
+});

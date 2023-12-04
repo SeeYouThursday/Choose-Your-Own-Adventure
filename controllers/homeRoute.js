@@ -57,46 +57,5 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-//Get Specific Storyline Set
-router.get('/storyline/:id', withAuth, async (req, res) => {
-  try {
-    const storyData = await StoryLine.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-        {
-          model: Story,
-        },
-      ],
-    });
-
-    const storyline = storyData.get({ plain: true });
-    //TODO: replace with new handlebars file after complete
-    res.render('test-story-flow', {
-      ...storyline,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-//Get Specific Story Choice Set //TODO make sure render is set properly
-router.get('/story/:id', async (req, res) => {
-  try {
-    const storyData = await Story.findByPk(req.params.id);
-
-    const story = storyData.get({ plain: true });
-    //TODO: replace with new handlebars file after complete
-    res.render('test-story-flow', {
-      ...story,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 module.exports = router;

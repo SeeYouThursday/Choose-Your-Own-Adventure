@@ -4,10 +4,12 @@
     <form>
       <input
         type='button'
+        class='next-choice'
         value='{{story.Option1}}'
         data-id='{{story.id}}'
       />
-      <input type='button' value='{{story.Option2}}' data-id='{{story_id}}' />
+      <input type='button' class='next-choice' value='{{story.Option2}}' data-id='{{story_line}}' />
+      {{!-- !the value and story_line are not passing through correctly --}}
     </form>
   </section>
   <form>
