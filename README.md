@@ -102,5 +102,75 @@ npm run seed
 ```javascript
 nodemon server
 ```
+#
+### ![usage](./luck/branding/3.png)
+
+**INSTRUCTIONS:**
+
+1. Open the Integrated Terminal and follow the [installation](#installation) guidelines
+
+2. Interact with `STROKE OF LUCK's` back end with [Insomnia](https://www.npmjs.com/package/inquirer/v/8.2.4) by testing the below:
+      * GET all users, stories
+      * GET user, story by id
+      * CREATE user, story
+      * UPDATE user, story,
+      * DELETE story
+
+    ##### view [demo videos](#demo) and [testing](#testing) 
+3. Open the [application]() deployed on [Heroku](https://heroku.com/home)
+4. Signup by creating a **username/password**
+5. *Create*, *update*, and *delete* stories through your dashboard
+6. *View* all stories via the homepage
+7. *Logout* to leave the application
+
+### ![screenshot](./luck/branding/12.png)
+             
+##### *screenshot demonstrates `STROKE OF LUCK's` back end, testing all routes with **Insomnia**, and the functional application deployed on **Heroku***
+
+<!-- <p align="center">
+<img src="./luck/demo/ss.png"/>
+</p> -->
+
+
+### ![demo](./luck/branding/13.png)
 
 #
+
+### ![testing](./luck/branding/8.png)
+
+**TESTING WITH INSOMNIA:**
+
+There are different tools available that can test reading/writing operations in a web browser - in this application we use [Insomnia](https://insomnia.rest/), a *REST client* that makes it easy to send **HTTP requests** to an API and view response details.
+
+<!-- add testing elements -->
+#
+
+### ![sources](./luck/branding/4.png)
+
+Here's a list of technologies used:
+
+1. [Node.js](https://nodejs.org/en) - is an open-source, cross-platform JavaScript runtime environment.
+
+2. [Express.js]((https://expressjs.com)) - a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+
+3. [Handlebars.js](https://handlebarsjs.com/) - a JavaScript templating library used in web development to create dynamic web pages and generate HTML content based on data.
+
+4. [MySQL2](https://www.npmjs.com/package/mysql2) - MySQL is a relational database management system based on SQL – Structured Query Language.
+
+5. [Sequelize](https://sequelize.org/) - a Node.js based `Object Relational Mapper` that makes it easy to work with **MySQL databases**. An *Object Relational Mapper* performs functions like handling database records by representing the data as objects.
+
+6. [express-handlebars](https://www.npmjs.com/package/express-handlebars) - a Handlebars view engine for Express which doesn't suck.
+
+7. [express-session](https://www.npmjs.com/package/express-session) - a Node.js module that offers simple session middleware for Express.
+
+8. [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) - a SQL session store using Sequelize.js.
+
+9. [Bcyrpt](https://www.npmjs.com/package/bcrypt) - a Node.js library to help hash passwords.
+
+10. [Dotenv](https://www.npmjs.com/package/dotenv) - a zero-dependency module that loads environment variables from a .env file into `process.env`.
+
+11. [Nodemon](https://www.npmjs.com/package/nodemon) - a Node.js tool that helps develop applications by automatically restarting the node application when file changes in the directory are detected.
+
+12. [Insomnia](https://insomnia.rest/) - an open source desktop application that assists in designing, debugging, and testing APIs (specifically in this instance, HTTP-based RESTful APIs).
+
+13. [Heroku](https://heroku.com) - used to deploy, manage, and scale the application.
