@@ -1,0 +1,27 @@
+<div>
+  <section class='container'>
+    <p>scenario texts</p>
+    <form>
+      <input
+        type='button'
+        value='{{story.Option1}}'
+        data-id='{{story.id}}'
+      />
+      <input type='button' value='{{story.Option2}}' data-id='{{story_id}}' />
+    </form>
+  </section>
+  <form>
+    <input
+      type='button'
+      value='Save Progress!'
+      id='save-story'
+      {{!-- if the storyline has just started, then set the data-id to 1 --}}
+      {{#if story_id}}
+      data-id='{{story_id}}'
+      {{else}}
+      data-id='1'
+      {{/if}}
+    />
+  </form>
+</div>
+<script src='/js/storyhandling.js'></script>

@@ -16,4 +16,12 @@ StoryLine.belongsTo(User, {
 //   foreignKey: 'story_id',
 // });
 
+Story.hasMany(StoryLine, {
+  foreignKey: 'story_id',
+});
+
+StoryLine.belongsTo(Story, {
+  foreignKey: 'story_id',
+});
+
 module.exports = { User, Story, StoryLine };

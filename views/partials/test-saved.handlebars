@@ -3,7 +3,12 @@
   {{! use cards here? }}
   {{#if storylines.length}}
     {{#each storylines as |story|}}
-      <button data-id='{{story.storylines}}'>{{story.title}}</button>
+      <a
+        class='btn btn-primary'
+        role='button'
+        data-id='{{story.id}}'
+        href='/storyline/{{story.id}}'
+      >{{story.title}}</a>
       {{! future dev: include user description or auto descript? OR have a drop down that shows the current storyline contents }}
     {{/each}}
     {{! <script src='js/saved_story.js'></script> }}
