@@ -10,7 +10,7 @@ const getStory = async () => {
   try {
     const id = document.getElementById('save-story').getAttribute('data-id');
     console.log(id);
-    const response = await fetch(`${window.location.origin}/api/story/${id}`, {
+    const response = await fetch(`${window.location.origin}/story/${id}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
