@@ -174,3 +174,18 @@ Here's a list of technologies used:
 12. [Insomnia](https://insomnia.rest/) - an open source desktop application that assists in designing, debugging, and testing APIs (specifically in this instance, HTTP-based RESTful APIs).
 
 13. [Heroku](https://heroku.com) - used to deploy, manage, and scale the application.
+
+### ![license](./luck/branding/5.png)
+
+##### [mit license](./LICENSE)
+
+
+### ![links](./luck/branding/6.png)
+
+##### [*github repo*](https://github.com/seeyouthursday/choose-your-own-adventure)
+
+##### [*deployed app*]()
+
+### ![connect](./luck/branding/7.png)
+
+[![Github Badge](https://img.shields.io/badge/-yellow.svg?&logo=Github&logoColor=white)](https://github.com/seeyouthursday/choose-your-own-adventure)
