@@ -1,6 +1,19 @@
 async function landingFormHandler(event) {
     event.preventDefault();
-    
-    //post request
-    const response = await fetch('/api')
-}
+
+    const response = await fetch('/', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    //redirect to homepage
+    if (response.ok) {
+        document.location.replace('/home');
+    } else {
+        alert(response.statusText);
+    }
+};
+
+document
+    .querySelector('#landing-form')
+    .addEventListener('submit', landingFormHandler);
