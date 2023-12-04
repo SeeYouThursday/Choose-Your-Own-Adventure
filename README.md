@@ -33,7 +33,42 @@
   - [LINKS](#links)
   - [CONNECT](#connect)
 
-  ### ![overview](./luck/branding/1.png)
+### ![overview](./luck/branding/1.png)
 
-coming soon!
+`STROKE OF LUCK` is an interactive **Choose Your Own Adventure (CYOA)** game where adventurers partake on a journey, guided by chance. The app follows the MVC paradigm in its architectural structure, using [Handlebars.js](https://handlebarsjs.com/) as the templating language,[Sequelize](https://www.npmjs.com/package/sequelize) as the ORM, the [express-session](https://www.npmjs.com/package/express-session) npm package for authentication, and [Heroku](https://www.heroku.com/), the platform hosting the application.
+
+* [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement [Handlebars.js]() for *views*.
+
+* [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect  to `STROKE OF LUCK's` **database** for *models*
+
+* [Express.js](https://expressjs.com/) API for *controllers*.
+
+* [dotenv](https://www.npmjs.com/package/dotenv) package to use environment variables to **store sensitive data**, [bcrypt package](https://www.npmjs.com/package/bcrypt) to **hash passwords**, & [express-session](https://www.npmjs.com/package/express-session) and  [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add **authentication**.
+
+#
+>The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie - when an adventurer is idle on `STROKE OF LUCK` for more than a set time, the cookie will expire and the adventurer will be required to log in again to start a new session.
+#
+
+
+
+### ![user-story](./luck/branding/9.png)
+<!-- <p align="center">
+  <img src="./luck/branding/user-story.png"/>
+</p> -->
+
+### ![concept-design](./luck/branding/10.png)
+<!-- <p align="center">
+  <img src="./abductions/branding/ac.png"/>
+</p> -->
+
+### ![luck-list](./luck/branding/11.png)
+<!-- <p align="center">
+  <img src="./abductions/branding/probe-list.png"/>
+</p> -->
+
+### ![team](./luck/branding/.png)
+<!-- <p align="center">
+  <img src="./abductions/branding/probe-list.png"/>
+</p> -->
+
 #
