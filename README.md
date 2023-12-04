@@ -33,7 +33,159 @@
   - [LINKS](#links)
   - [CONNECT](#connect)
 
-  ### ![overview](./luck/branding/1.png)
+### ![overview](./luck/branding/1.png)
 
-coming soon!
+`STROKE OF LUCK` is an interactive **Choose Your Own Adventure (CYOA)** game where adventurers partake on a journey, guided by chance. The app follows the MVC paradigm in its architectural structure, using [Handlebars.js](https://handlebarsjs.com/) as the templating language,[Sequelize](https://www.npmjs.com/package/sequelize) as the ORM, the [express-session](https://www.npmjs.com/package/express-session) npm package for authentication, and [Heroku](https://www.heroku.com/), the platform hosting the application.
+
+* [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement [Handlebars.js]() for *views*.
+
+* [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect  to `STROKE OF LUCK's` **database** for *models*
+
+* [Express.js](https://expressjs.com/) API for *controllers*.
+
+* [dotenv](https://www.npmjs.com/package/dotenv) package to use environment variables to **store sensitive data**, [bcrypt package](https://www.npmjs.com/package/bcrypt) to **hash passwords**, & [express-session](https://www.npmjs.com/package/express-session) and  [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add **authentication**.
+
 #
+>The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie - when an adventurer is idle on `STROKE OF LUCK` for more than a set time, the cookie will expire and the adventurer will be required to log in again to start a new session.
+#
+
+
+
+### ![user-story](./luck/branding/9.png)
+<!-- <p align="center">
+  <img src="./luck/branding/user-story.png"/>
+</p> -->
+
+### ![concept-design](./luck/branding/10.png)
+<!-- <p align="center">
+  <img src="./abductions/branding/ac.png"/>
+</p> -->
+
+### ![luck-list](./luck/branding/11.png)
+<!-- <p align="center">
+  <img src="./abductions/branding/probe-list.png"/>
+</p> -->
+
+<!-- ### ![team](./luck/branding/.png) -->
+<!-- <p align="center">
+  <img src="./abductions/branding/probe-list.png"/>
+</p> -->
+
+#
+
+### ![installation](./luck/branding/2.png)
+
+The application is invoked using the following commands:
+
+##### *Clone the repository in your local development enviornment.*
+
+```
+git clone https://github.com/seeyouthursday/choose-your-own-adventure.git
+```
+##### **Create a *.env* with your information**
+
+##### *Navigate to the command line and input:*
+
+```javascript
+npm i :: express, mysql2, dotenv --save, sequelize, nodemon --save-dev, handlebars, express-session, express-handlebars, bcypt, connect-session-sequelize
+```
+```javascript
+mysql -u root -p
+```
+```mysql
+SOURCE db/schema.sql;
+quit
+```
+```javascript
+npm run seed
+```
+```javascript
+nodemon server
+```
+#
+### ![usage](./luck/branding/3.png)
+
+**INSTRUCTIONS:**
+
+1. Open the Integrated Terminal and follow the [installation](#installation) guidelines
+
+2. Interact with `STROKE OF LUCK's` back end with [Insomnia](https://www.npmjs.com/package/inquirer/v/8.2.4) by testing the below:
+      * GET all users, stories
+      * GET user, story by id
+      * CREATE user, story
+      * UPDATE user, story,
+      * DELETE story
+
+    ##### view [demo videos](#demo) and [testing](#testing) 
+3. Open the [application]() deployed on [Heroku](https://heroku.com/home)
+4. Signup by creating a **username/password**
+5. *Create*, *update*, and *delete* stories through your dashboard
+6. *View* all stories via the homepage
+7. *Logout* to leave the application
+
+### ![screenshot](./luck/branding/12.png)
+             
+##### *screenshot demonstrates `STROKE OF LUCK's` back end, testing all routes with **Insomnia**, and the functional application deployed on **Heroku***
+
+<!-- <p align="center">
+<img src="./luck/demo/ss.png"/>
+</p> -->
+
+
+### ![demo](./luck/branding/13.png)
+
+#
+
+### ![testing](./luck/branding/8.png)
+
+**TESTING WITH INSOMNIA:**
+
+There are different tools available that can test reading/writing operations in a web browser - in this application we use [Insomnia](https://insomnia.rest/), a *REST client* that makes it easy to send **HTTP requests** to an API and view response details.
+
+<!-- add testing elements -->
+#
+
+### ![sources](./luck/branding/4.png)
+
+Here's a list of technologies used:
+
+1. [Node.js](https://nodejs.org/en) - is an open-source, cross-platform JavaScript runtime environment.
+
+2. [Express.js]((https://expressjs.com)) - a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+
+3. [Handlebars.js](https://handlebarsjs.com/) - a JavaScript templating library used in web development to create dynamic web pages and generate HTML content based on data.
+
+4. [MySQL2](https://www.npmjs.com/package/mysql2) - MySQL is a relational database management system based on SQL – Structured Query Language.
+
+5. [Sequelize](https://sequelize.org/) - a Node.js based `Object Relational Mapper` that makes it easy to work with **MySQL databases**. An *Object Relational Mapper* performs functions like handling database records by representing the data as objects.
+
+6. [express-handlebars](https://www.npmjs.com/package/express-handlebars) - a Handlebars view engine for Express which doesn't suck.
+
+7. [express-session](https://www.npmjs.com/package/express-session) - a Node.js module that offers simple session middleware for Express.
+
+8. [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) - a SQL session store using Sequelize.js.
+
+9. [Bcyrpt](https://www.npmjs.com/package/bcrypt) - a Node.js library to help hash passwords.
+
+10. [Dotenv](https://www.npmjs.com/package/dotenv) - a zero-dependency module that loads environment variables from a .env file into `process.env`.
+
+11. [Nodemon](https://www.npmjs.com/package/nodemon) - a Node.js tool that helps develop applications by automatically restarting the node application when file changes in the directory are detected.
+
+12. [Insomnia](https://insomnia.rest/) - an open source desktop application that assists in designing, debugging, and testing APIs (specifically in this instance, HTTP-based RESTful APIs).
+
+13. [Heroku](https://heroku.com) - used to deploy, manage, and scale the application.
+
+### ![license](./luck/branding/5.png)
+
+##### [mit license](./LICENSE)
+
+
+### ![links](./luck/branding/6.png)
+
+##### [*github repo*](https://github.com/seeyouthursday/choose-your-own-adventure)
+
+##### [*deployed app*]()
+
+### ![connect](./luck/branding/7.png)
+
+[![Github Badge](https://img.shields.io/badge/-yellow.svg?&logo=Github&logoColor=white)](https://github.com/seeyouthursday/choose-your-own-adventure)
