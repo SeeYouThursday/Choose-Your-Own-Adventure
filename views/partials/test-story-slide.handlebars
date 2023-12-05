@@ -1,0 +1,31 @@
+<div>
+  <section class='container'>
+    <p>scenario texts</p>
+    
+      <a
+        {{!-- type='button' --}}
+        class='btn btn-primary next-choice'
+        href='/story/'
+        {{!-- value='' --}}
+        data-id='{{id}}'
+      >{{Option1}}</a>
+      <input type='button' class='next-choice' value='{{Option2}}' data-id='{{story_line}}' />
+      {{!-- !the value and story_line are not passing through correctly --}}
+    </form>
+  </section>
+  <form>
+    <input
+      type='button'
+      value='Save Progress!'
+      id='save-story'
+      {{!-- if the storyline has just started, then set the data-id to 1 --}}
+     
+      {{#if story_id}}
+       data-story-id='{{story_id}}'
+      {{else}}
+      data-id='1'
+      {{/if}}
+    />
+  </form>
+</div>
+<script src='/js/storyhandling.js'></script>

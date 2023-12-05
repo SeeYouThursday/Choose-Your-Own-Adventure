@@ -60,4 +60,28 @@ router.delete('delete/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/:id', withAuth, async (req, res) => {
+  try {
+    const storyData = await StoryLine.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+          exclude: ['password'],
+        },
+        {
+          model: Story,
+          attributes: ['id'],
+        },
+      ],
+    });
+
+    const storyline = storyData.get({ plain: true });
+    res.json(storyline);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

@@ -14,6 +14,8 @@ StoryLine.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      //TODO: Make this unique and set an error message for the user in the FE if they try to create a story with the same name as one they already have
+      // unique: true,
     },
     story_line: {
       type: DataTypes.STRING,
@@ -23,6 +25,13 @@ StoryLine.init(
       references: {
         model: 'user',
         key: 'id',
+      },
+      story_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'story',
+          key: 'id',
+        },
       },
     },
   },
