@@ -5,7 +5,11 @@ const withAuth = require('../utils/auth');
 //Get Specific Storyline Set
 router.get('/:id', withAuth, async (req, res) => {
   try {
-    const storyData = await StoryLine.findByPk(req.params.id, {
+    const storyData = await StoryLine.findOne({
+      where: {
+        id: req.params.id,
+        // story_id: req.params.story_id,
+      },
       include: [
         {
           model: User,
@@ -25,6 +29,7 @@ router.get('/:id', withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.error(err);
     res.status(500).json(err);
   }
 });

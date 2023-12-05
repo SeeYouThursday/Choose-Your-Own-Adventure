@@ -1,6 +1,6 @@
 const withAuth = require('../../utils/auth');
 const router = require('express').Router();
-const { StoryLine } = require('../../models');
+const { StoryLine, User, Story } = require('../../models');
 
 //Create new story-line
 router.post('/start', withAuth, async (req, res) => {
@@ -76,8 +76,8 @@ router.get('/:id', withAuth, async (req, res) => {
       ],
     });
 
-    const storyline = storyData.get({ plain: true });
-    res.json(storyline);
+    // const storyline = storyData.get({ plain: true });
+    res.json(storyData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
