@@ -60,33 +60,33 @@ router.delete('delete/:id', withAuth, async (req, res) => {
   }
   console.log(`
 =====================================================================
-********************** STORY LINE WAS REMOVED **********************
+********************** STORY LINE WAS REMOVED ***********************
 =====================================================================
-  llllllllllllllllllllllllllllllllllllll                      
-   llllllllllllllllllllllllllllllllllll                       
-      llllllllllllllllllllllllllllllll                        
-        lllllllllllllllllllllllllllll                          
-           lllllllllllllllllllllllll                          
-              lllllllllllllllllllll                             
-                 lllllllllllllllll                              
-                   llllllllllllll                               
-                    llllllllllll                                
-                   llllllllllll                                 
-                  llllllllllll                                  
-                 llllllllllll                                   
-                llllllllllll                                    
-               llllllllllll                                     
-              lllllllllll                                      
-              llllllllllll                                      
-         '     llllllllllll      '                        
-            *    llllllllllll  *   *                            
-     '    *    *   llllllllllll   *  *   '                      
-             *   *   llllllllll  *                              
-          '    *   * lllllllll *   *   '                        
-       '    '     *  llllllll   *   '_____                      
-             ; ; ; * lllllll  * /  /:''''':                    
-           . ' ' ;  llllll  / / / /  :''''':                    
-         ; ' ; ' ' llllll / / / / |[] | [] |
+              llllllllllllllllllllllllllllllllllllll                      
+               llllllllllllllllllllllllllllllllllll                       
+                  llllllllllllllllllllllllllllllll                        
+                    lllllllllllllllllllllllllllll                          
+                       lllllllllllllllllllllllll                          
+                          lllllllllllllllllllll                             
+                             lllllllllllllllll                              
+                               llllllllllllll                               
+                                llllllllllll                                
+                               llllllllllll                                 
+                              llllllllllll                                  
+                             llllllllllll                                   
+                            llllllllllll                                    
+                           llllllllllll                                     
+                           lllllllllll                                      
+                          llllllllllll                                      
+                    '     llllllllllll      '                        
+                      *     llllllllllll  *   *                            
+              '    *    *     llllllllllll   *  *   '                      
+                      *   *     llllllllll  *                              
+                      '    *   * lllllllll *   *   '                        
+                   '    '     *  llllllll   *   '_____                      
+                         ; ; ; * lllllll  * /  /:''''':                    
+                       . ' ' ;  llllll  / / / /  :''''':                    
+                     ; ' ; ' ' llllll / / / / |[] | [] |
   `);
 });
 
@@ -108,8 +108,33 @@ router.get('/:id', withAuth, async (req, res) => {
 
     // const storyline = storyData.get({ plain: true });
     res.json(storyData);
+    console.log(`
+=====================================================================
+********************* VIEWING STORYLINE BY ID ***********************
+=====================================================================
+                      '
+                    .      '      .
+                .    .     :     .      .
+                 '.        ______       .'
+                   '  _.-"`      `"-._ '
+                    .'                '.
+             ''--. /                    : .--''
+                  /                      :
+                 ;                        ;
+            - -- |                        | -- -
+                 |     _.                 |
+                 ;    /__'.   ,_          ;
+             .-'  :   |= |;._.}{__       /  '-.
+                _.-""-|.' # '. `  `.-"{}<._
+                       /      l     l  x   '"
+                 ----/         l_.-'|--X----
+                 -=_ |         |    |- X.  =_
+                - __ |_________|_.-'|_X-X##
+                jgs ''-._|_|;:;_.-'' '::.  '"-
+                  .:;.      .:.   ::.     '::.
+    `); 
   } catch (err) {
-    console.log(err);
+    console.log(err);   
     res.status(500).json(err);
   }
 });
