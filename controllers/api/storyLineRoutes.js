@@ -5,7 +5,7 @@ const { StoryLine, User, Story } = require('../../models');
 //Create new story-line
 router.post('/start', withAuth, async (req, res) => {
   const title = req.body.title;
-  const story_line = req.body.story_line;
+  const story_line = `Let's get started!`;
   try {
     const storyData = await StoryLine.create({
       title,

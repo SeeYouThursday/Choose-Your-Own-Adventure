@@ -5,32 +5,20 @@ const getStory = async () => {
     const id = document
       .querySelector('#save-story')
       .getAttribute('data-story-choice-set');
-    const response = await fetch(`${window.location.origin}/api/story/${id}`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    });
-
+    const response = await fetch(
+      `${window.location.origin}/api/storyline/${id}`,
+      {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
     if (response.ok) {
       const data = await response.json();
       console.log('okay', data);
       if (data.story_line !== null) {
         continuingStory.push(data.story_line);
         console.log(continuingStory);
-      } else {
-        const updateResponse = await fetch(`/api/storyline/update/${id}`, {
-          method: 'PUT',
-          body: JSON.stringify({
-            story_id: 1,
-            story_line: `Let's get started!`,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        console.log(continuingStory);
-        if (!updateResponse.ok) {
-          console.log('Error:', updateResponse.status);
-        }
+        return continuingStory;
       }
     }
   } catch (error) {
@@ -38,17 +26,21 @@ const getStory = async () => {
   }
 };
 
+console.log('ln28', continuingStory);
+
 //?? Is this needed?
 const savedStoryHandler = async (event) => {
   event.preventDefault();
-  // const id = document.querySelector('#save-story').getAttribute('data-id');
+  console.log('ln33', continuingStory);
+
   try {
-    const id = event.target.getAttribute('data-id');
+    const id = event.target.getAttribute('data-choice-set-id');
+    const storyId = event.target.getAttribute('data-story-id');
     const response = await fetch(`/api/storyline/update/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
         story_line: continuingStory,
-        story_id: parseInt(id),
+        story_id: parseInt(storyId),
         title: document.querySelector('#save-story').getAttribute('data-title'),
       }),
       headers: { 'Content-Type': 'application/json' },
