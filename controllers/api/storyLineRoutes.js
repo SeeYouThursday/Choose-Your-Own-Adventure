@@ -66,9 +66,9 @@ router.post('/start', withAuth, async (req, res) => {
   (_// /|  / /                           / /
   | | ||  / /                            |/
   / | || / /
- /  | ||/ /      JOUST(TM) Ostrich and Mount
-(_ | ,'/ /  by Greg Berigan 
-( '/ ||l/              August 29, 1995
+ /  | ||/ /
+(_ | ,'/ /
+( '/ ||l/ 
  l/ | l_
  |  l_  '_
   l ,-,l,-,',

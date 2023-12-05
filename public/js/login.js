@@ -1,3 +1,9 @@
+document
+  .querySelector('body')
+  .setAttribute('style', "background-image: url('/images/login.png'); background-size: cover; height: 100vh; background-color: black;");
+
+
+
 //login submission form
 async function loginFormHandler(event) {
   event.preventDefault();
