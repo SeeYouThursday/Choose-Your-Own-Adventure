@@ -58,6 +58,36 @@ router.delete('delete/:id', withAuth, async (req, res) => {
   } catch {
     res.status(500).json(err);
   }
+  console.log(`
+=====================================================================
+********************** STORY LINE WAS REMOVED **********************
+=====================================================================
+  llllllllllllllllllllllllllllllllllllll                      
+   llllllllllllllllllllllllllllllllllll                       
+      llllllllllllllllllllllllllllllll                        
+        lllllllllllllllllllllllllllll                          
+           lllllllllllllllllllllllll                          
+              lllllllllllllllllllll                             
+                 lllllllllllllllll                              
+                   llllllllllllll                               
+                    llllllllllll                                
+                   llllllllllll                                 
+                  llllllllllll                                  
+                 llllllllllll                                   
+                llllllllllll                                    
+               llllllllllll                                     
+              lllllllllll                                      
+              llllllllllll                                      
+         '     llllllllllll      '                        
+            *    llllllllllll  *   *                            
+     '    *    *   llllllllllll   *  *   '                      
+             *   *   llllllllll  *                              
+          '    *   * lllllllll *   *   '                        
+       '    '     *  llllllll   *   '_____                      
+             ; ; ; * lllllll  * /  /:''''':                    
+           . ' ' ;  llllll  / / / /  :''''':                    
+         ; ' ; ' ' llllll / / / / |[] | [] |
+  `);
 });
 
 router.get('/:id', withAuth, async (req, res) => {
