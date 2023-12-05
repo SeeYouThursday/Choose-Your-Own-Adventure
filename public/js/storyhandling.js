@@ -8,20 +8,20 @@ const getStoryId = () => {
 
 const getStory = async () => {
   try {
-    const id = document.getElementById('save-story').getAttribute('data-id');
+    const id = document.querySelector('#save-story').getAttribute('data-id');
     console.log(id);
-    const response = await fetch(`${window.location.origin}/story/${id}`, {
+    const response = await fetch(`${window.location.origin}/api/story/${id}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log(response);
+    console.log('get story', response);
     if (response.ok) {
       const data = await response.json();
       console.log('this data', data);
       if (data.story_line !== null) {
         console.log('passed if statement');
         //TODO: Redirect to story page
-        console.log(data.story_line);
+        console.log('data.story_line', data.story_line);
         // document.location.replace(`/storyline/${id}`);
         continuingStory = [data.story_line];
         console.log(continuingStory);
@@ -37,14 +37,15 @@ const getStory = async () => {
             'Content-Type': 'application/json',
           },
         });
-
         if (updateResponse.ok) {
-          const updateData = await updateResponse.json();
-          console.log('updated', updateData);
+          // const updateData = await updateResponse.json();
+          console.log('updateResponse', updateResponse);
+          response.json(updateResponse);
+          console.log('updated', updateResponse);
         } else {
           console.log('Error:', updateResponse.status);
         }
-        console.log('updated', updateResponse);
+        console.log('updated', updateResponse.status);
       }
     }
   } catch (error) {
@@ -61,7 +62,8 @@ const savedStoryHandler = async (event) => {
       method: 'PUT',
       body: JSON.stringify({
         story_line: continuingStory,
-        story_id: parseInt(currentId),
+        story_id: parseInt(id),
+        title: document.querySelector('#save-story').getAttribute('data-title'),
       }),
       headers: { 'Content-Type': 'application/json' },
     });
@@ -79,24 +81,26 @@ nextChoiceHandler = async (event) => {
   event.preventDefault();
   const id = document.getElementById('save-story');
   let currentId = id.getAttribute('data-id');
-  console.log(id);
-  try {
-    const response = await fetch(`/api/story/${id}`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    });
-    console.log(response);
-    if (response.ok) {
-      const data = await response.json();
-      console.log('this data', data);
-      if (data.story_line !== null) {
-        console.log('passed if statement');
-      }
-    }
-    id.setAttribute('data-id', ++currentId);
-  } catch (error) {
-    console.log(error);
-  }
+
+  // try {
+  //   const response = await fetch(`/api/story/${id}`, {
+  //     method: 'GET',
+  //     headers: { 'Content-Type': 'application/json' },
+  //   });
+  //   console.log(response);
+  //   if (response.ok) {
+  //     const data = await response.json();
+  //     console.log('this data', data);
+  //     if (data !== null) {
+  //       console.log('passed if statement');
+  //     } else {
+  //       console.log('I have failed you, Anakin and this if statement');
+  //     }
+  //   }
+  //   id.setAttribute('data-id', ++currentId);
+  // } catch (error) {
+  //   console.log(error);
+  // }
 };
 
 getStory();
@@ -105,7 +109,7 @@ getStory();
 //Waiting until the user clicks 'Save' to save the story
 document
   .querySelector('#save-story')
-  .addEventListener('submit', savedStoryHandler);
+  .addEventListener('click', savedStoryHandler);
 
 document.querySelectorAll('.next-choice').forEach((button) => {
   button.addEventListener('click', nextChoiceHandler);
