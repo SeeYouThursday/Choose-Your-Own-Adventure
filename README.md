@@ -52,9 +52,9 @@
 
 
 ### ![user-story](./luck/branding/9.png)
-<!-- <p align="center">
+<p align="center">
   <img src="./luck/branding/user-story.png"/>
-</p> -->
+</p>
 
 ### ![concept-design](./luck/branding/10.png)
 <!-- <p align="center">
