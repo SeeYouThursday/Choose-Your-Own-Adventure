@@ -1,30 +1,38 @@
 const continuingStory = [];
-
-const getStory = async () => {
-  try {
-    const id = document
-      .querySelector('#save-story')
-      .getAttribute('data-story-choice-set');
-    const response = await fetch(
-      `${window.location.origin}/api/storyline/${id}`,
-      {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
-    if (response.ok) {
-      const data = await response.json();
-      console.log('okay', data);
-      if (data.story_line !== null) {
-        continuingStory.push(data.story_line);
-        console.log(continuingStory);
-        return continuingStory;
-      }
-    }
-  } catch (error) {
-    console.log(error);
-  }
+//consider storing storyline in hb and passing it to the js file
+// const getStory = async () => {
+//   try {
+//     const id = document
+//       .querySelector('#save-story')
+//       .getAttribute('data-story-id');
+//     const response = await fetch(
+//       `${window.location.origin}/api/storyline/${id}`,
+//       {
+//         method: 'GET',
+//         headers: { 'Content-Type': 'application/json' },
+//       }
+//     );
+//     if (response.ok) {
+//       const data = await response.json();
+//       console.log('okay', data);
+//       if (data.story_line !== null) {
+//         continuingStory.push(data.story_line);
+//         console.log(continuingStory);
+//         return continuingStory;
+//       }
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+const updateStoryVar = () => {
+  const story = document.querySelector('#save-story').getAttribute('data-id');
+  console.log(story);
+  continuingStory.push(story);
+  return continuingStory;
 };
+
+updateStoryVar();
 
 console.log('ln28', continuingStory);
 
@@ -54,18 +62,34 @@ const savedStoryHandler = async (event) => {
   }
 };
 
+// getStory();
+
 const nextChoiceHandler = async (event) => {
   event.preventDefault();
-  const id = document.getElementById('save-story');
-  const currentId = id.getAttribute('data-id');
+  // const id = document.getElementById('save-story');
+  // const currentId = id.getAttribute('data-id');
+  const storyChoice = event.target.value.toString();
+  console.log(storyChoice, 'ln64');
+  if (storyChoice) {
+    continuingStory.push(`${storyChoice}`);
+    console.log(continuingStory, 'ln65');
+    return continuingStory;
+  } else {
+    console.log('no choice');
+  }
 };
 
-getStory();
+console.log(continuingStory, 'ln82');
+//push the choice string to the continuing story array
 
-document
-  .querySelector('#save-story')
-  .addEventListener('click', savedStoryHandler);
+//href to the next choice
+// document
+//   .querySelector('#story-choice')
+//   .addEventListener('submit', nextChoiceHandler);
 
-document.querySelectorAll('.next-choice').forEach((button) => {
-  button.addEventListener('click', nextChoiceHandler);
+document.querySelectorAll('.next-choice').forEach((choice) => {
+  choice.addEventListener('click', nextChoiceHandler);
 });
+// document
+//   .querySelector('#save-story')
+//   .addEventListener('click', savedStoryHandler);
