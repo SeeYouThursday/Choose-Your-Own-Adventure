@@ -17,6 +17,63 @@ router.post('/start', withAuth, async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
+  console.log(`
+  =====================================================================
+  ********************** STORY LINE WAS REMOVED ***********************
+  =====================================================================                                                                                                //
+                           _                        //
+                        ,-'_'----,_                //
+                       (  _~d~~_/ '~-----,        //
+                       (_<_~~~~_,----==='        //
+                  __    /  ~~~~=--~~~~          //
+                 /  ;   |   /~~                //
+                 l_ |   l   l                 //
+                 (_ |    l   l_              //
+                   L|     l_   l_           //
+                   ||       l_   l_        //
+               _____U         l_   l_     //
+              |  __ l           l_   l_  //
+              |  l_l_|            l_   l//
+              |______|              l_ //_
+              |_______;               //  l
+               |  |    '             //l   l
+               |  |     '-_         //  |   l
+               |  '-,_ / / ,-______//   |__  l
+               l----  '-/_/ /||||_  ~),-   ~--l
+                ~l_      /-/_'~~~/l_)/_/       ~l
+           _       l_   /  / /~~/ /-__ '-/_  ,   |
+         _/ ),--,    l_/  /  | / //   -,__ '/_ | |
+        /   ',-, |,_   l_/  / / //    /   l  l// |
+       /      _)    )-~~(   |/ /_Z--_/_   /    '/
+      |  /    _~) /~    -'--/ /~ l   l ~-/      |
+      | /    ' ~,,--,  (   / /'l__l_--~~~      |
+      l|        /      )  / /~~              _/
+        l_            / _/ /          l    _/
+          l          | // /            | _/
+           '-__/     |// /            /_-
+              '--,__/ / /          __--
+                 _-' / /       __--
+              _-'   / /    __--
+           _-'     / / __-- --___
+        _-'   ___-/ /--  ~~~---__'--,___
+      _/   __/,--/ /,--,--_____ _~'-----'-----,
+   ,-~ __,- _//_/ //__/__/_/_/_//~~~~--r-,.l  )
+  |   /  _/~,/ / /             ~~~~~~~~'-') | (
+  l_,| ./ ,'  / /                       (~  o  )
+  |_,|~|_/   / /                         ) _  /
+  (_,|~||   / /                          |/ )/
+  (_// /|  / /                           / /
+  | | ||  / /                            |/
+  / | || / /
+ /  | ||/ /      JOUST(TM) Ostrich and Mount
+(_ | ,'/ /  by Greg Berigan 
+( '/ ||l/              August 29, 1995
+ l/ | l_
+ |  l_  '_
+  l ,-,l,-,',
+   ;_;_;;; ; ;
+    ~~~~~~~~~~~
+  `);
 });
 
 //TODO: Update story-line as choices are made
@@ -58,6 +115,36 @@ router.delete('delete/:id', withAuth, async (req, res) => {
   } catch {
     res.status(500).json(err);
   }
+  console.log(`
+=====================================================================
+********************** STORY LINE WAS REMOVED ***********************
+=====================================================================
+              llllllllllllllllllllllllllllllllllllll                      
+               llllllllllllllllllllllllllllllllllll                       
+                  llllllllllllllllllllllllllllllll                        
+                    lllllllllllllllllllllllllllll                          
+                       lllllllllllllllllllllllll                          
+                          lllllllllllllllllllll                             
+                             lllllllllllllllll                              
+                               llllllllllllll                               
+                                llllllllllll                                
+                               llllllllllll                                 
+                              llllllllllll                                  
+                             llllllllllll                                   
+                            llllllllllll                                    
+                           llllllllllll                                     
+                           lllllllllll                                      
+                          llllllllllll                                      
+                    '     llllllllllll      '                        
+                      *     llllllllllll  *   *                            
+              '    *    *     llllllllllll   *  *   '                      
+                      *   *     llllllllll  *                              
+                      '    *   * lllllllll *   *   '                        
+                   '    '     *  llllllll   *   '_____                      
+                         ; ; ; * lllllll  * /  /:''''':                    
+                       . ' ' ;  llllll  / / / /  :''''':                    
+                     ; ' ; ' ' llllll / / / / |[] | [] |
+  `);
 });
 
 router.get('/:id', withAuth, async (req, res) => {
@@ -78,8 +165,33 @@ router.get('/:id', withAuth, async (req, res) => {
 
     // const storyline = storyData.get({ plain: true });
     res.json(storyData);
+    console.log(`
+=====================================================================
+********************* VIEWING STORYLINE BY ID ***********************
+=====================================================================
+                      '
+                    .      '      .
+                .    .     :     .      .
+                 '.        ______       .'
+                   '  _.-"`      `"-._ '
+                    .'                '.
+             ''--. /                    : .--''
+                  /                      :
+                 ;                        ;
+            - -- |                        | -- -
+                 |     _.                 |
+                 ;    /__'.   ,_          ;
+             .-'  :   |= |;._.}{__       /  '-.
+                _.-""-|.' # '. `  `.-"{}<._
+                       /      l     l  x   '"
+                 ----/         l_.-'|--X----
+                 -=_ |         |    |- X.  =_
+                - __ |_________|_.-'|_X-X##
+                jgs ''-._|_|;:;_.-'' '::.  '"-
+                  .:;.      .:.   ::.     '::.
+    `); 
   } catch (err) {
-    console.log(err);
+    console.log(err);   
     res.status(500).json(err);
   }
 });
