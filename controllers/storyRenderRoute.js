@@ -15,7 +15,6 @@ router.get('/:id', withAuth, async (req, res) => {
         // },
         {
           model: StoryLine,
-          attributes: ['story_id', 'story_line'],
         },
       ],
     });

@@ -13,9 +13,26 @@ const startNewAdventureHandler = async (event) => {
       });
       console.log(title, storyline);
       if (response.ok) {
-        response.json({ message: 'Adventure started!' });
-        //TODO: Redirect to the story handling hb pages
-        document.location.replace('/start');
+        const data = response.json({ message: 'Adventure started!' });
+        console.log(data);
+
+        //??get id of last element in story-list and add 1 to get to new storyline
+        function getMaxId(elements) {
+          return Math.max(
+            ...elements
+              .map((el) => el.id)
+              .filter((id) => !isNaN(Number(id)))
+              .map(Number)
+          );
+        }
+
+        const div = document.getElementById('story-list');
+        const allElementsInDiv = [...div.getElementsByTagName('*')];
+        const maxId = getMaxId(allElementsInDiv);
+
+        if (maxId !== -Infinity) {
+          document.location.replace(`/storyline/${maxId}`);
+        }
       }
     }
   } catch (error) {

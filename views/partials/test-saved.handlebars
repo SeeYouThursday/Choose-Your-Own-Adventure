@@ -1,19 +1,15 @@
-<div>
+<div id='story-list'>
   <h4>Saved Games</h4>
   {{! use cards here? }}
   {{#if storylines.length}}
-    {{#each storylines as |story|}}
+    {{#each storylines}}
       <a
         class='btn btn-primary'
         role='button'
-        {{#if story.story_id}}
-        data-id='{{story.story_id}}'
-        href='/story/{{story.story_id}}'
-        {{else}}
-        data-id='1'
-        href='/story/1
-        {{/if}}'
-      >{{story.title}}</a>
+        href='/storyline/{{id}}'
+        id='{{id}}'
+        {{!-- href='/storyline/{{this.story_id}}' --}}
+      >{{this.title}}</a>
       {{! future dev: include user description or auto descript? OR have a drop down that shows the current storyline contents }}
     {{/each}}
     {{! <script src='js/saved_story.js'></script> }}

@@ -2,7 +2,9 @@ const continuingStory = [];
 
 const getStory = async () => {
   try {
-    const id = document.querySelector('#save-story').getAttribute('data-id');
+    const id = document
+      .querySelector('#save-story')
+      .getAttribute('data-story-choice-set');
     const response = await fetch(`${window.location.origin}/api/story/${id}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
@@ -10,9 +12,10 @@ const getStory = async () => {
 
     if (response.ok) {
       const data = await response.json();
-
+      console.log('okay', data);
       if (data.story_line !== null) {
         continuingStory.push(data.story_line);
+        console.log(continuingStory);
       } else {
         const updateResponse = await fetch(`/api/storyline/update/${id}`, {
           method: 'PUT',
@@ -24,7 +27,7 @@ const getStory = async () => {
             'Content-Type': 'application/json',
           },
         });
-
+        console.log(continuingStory);
         if (!updateResponse.ok) {
           console.log('Error:', updateResponse.status);
         }
@@ -35,9 +38,10 @@ const getStory = async () => {
   }
 };
 
+//?? Is this needed?
 const savedStoryHandler = async (event) => {
   event.preventDefault();
-
+  // const id = document.querySelector('#save-story').getAttribute('data-id');
   try {
     const id = event.target.getAttribute('data-id');
     const response = await fetch(`/api/storyline/update/${id}`, {
@@ -49,7 +53,7 @@ const savedStoryHandler = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+    response.json({ message: 'Story saved!' });
     if (response.ok) {
       document.location.replace('/dashboard');
     }
@@ -62,7 +66,6 @@ const nextChoiceHandler = async (event) => {
   event.preventDefault();
   const id = document.getElementById('save-story');
   const currentId = id.getAttribute('data-id');
-  id.setAttribute('data-id', ++currentId);
 };
 
 getStory();
