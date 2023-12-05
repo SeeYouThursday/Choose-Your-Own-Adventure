@@ -6,8 +6,13 @@
       <a
         class='btn btn-primary'
         role='button'
-        data-id='{{story.id}}'
-        href='/storyline/{{story.id}}'
+        {{#if story.story_id}}
+        data-id='{{story.story_id}}'
+        href='/story/{{story.story_id}}'
+        {{else}}
+        data-id='1'
+        href='/story/1
+        {{/if}}'
       >{{story.title}}</a>
       {{! future dev: include user description or auto descript? OR have a drop down that shows the current storyline contents }}
     {{/each}}
