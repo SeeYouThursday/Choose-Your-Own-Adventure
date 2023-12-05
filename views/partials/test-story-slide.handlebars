@@ -1,33 +1,32 @@
 <div>
   <section class='container'>
     <p>scenario texts</p>
-      <a
+    <form id='story-choice'>
+      <input
+        type='button'
         class='btn btn-primary next-choice'
-      {{#if story_id}}
-       data-story-id='{{story_id}}'
-      {{else}}
-      href='story/2'
-      data-story-id='1'
-      {{/if}}
-      >{{story.Option1}}</a>
-      <a type='button' class='btn btn-primary next-choice' value='' data-id='{{story.story_line}}'>{{story.Option2}}</a>
-      {{!-- !the value and story_line are not passing through correctly --}}
+        value='{{story.Option1}}'
+        data-story-id='{{story_id}}'
+      />
+      <input
+        type='button'
+        class='btn btn-primary next-choice'
+        value='{{story.Option2}}'
+      />
+      {{! !the value and story_line are not passing through correctly }}
+      <div><button type='submit'>Continue</button>
+        <button
+          id='save-story'
+          {{! if the storyline has just started, then set the data-id to 1 }}
+          data-id='{{story_line}}'
+          data-story-id='{{id}}'
+          data-story-title='{{title}}'
+          data-story-choice-set='{{story_id}}'
+        >'Save Progress (and Exit?)!'</button></div>
     </form>
   </section>
   <form>
-    <button
-      id='save-story'
-      {{!-- if the storyline has just started, then set the data-id to 1 --}}
-     data-story-id='{{id}}'
-     data-story-title='{{title}}'
-      {{#if story_id}}
-      data-story-choice-set='{{story_id}}' 
-      {{else}}
-      data-story-choice-set='1'
-      
-      data-story-title='{{title}}'
-      {{/if}}
-    >'Save Progress!'</button>
+
   </form>
 </div>
 <script src='/js/storyhandling.js'></script>
