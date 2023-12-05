@@ -5,12 +5,13 @@ const { StoryLine, User, Story } = require('../../models');
 //Create new story-line
 router.post('/start', withAuth, async (req, res) => {
   const title = req.body.title;
-  const story_line = req.body.story_line;
+  const story_line = `Let's get started!`;
   try {
     const storyData = await StoryLine.create({
       title,
       story_line,
       user_id: req.session.user_id,
+      story_id: 1,
     });
 
     res.status(200).json(storyData);
@@ -147,9 +148,33 @@ router.delete('delete/:id', withAuth, async (req, res) => {
   `);
 });
 
+//!TESTING
 router.get('/:id', withAuth, async (req, res) => {
   try {
     const storyData = await StoryLine.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username'],
+          exclude: ['password'],
+        },
+        {
+          model: Story,
+          attributes: ['id'],
+        },
+      ],
+    });
+    // const storyline = storyData.get({ plain: true });
+    res.json(storyData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+//!TESTING
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const storyData = await StoryLine.findAll({
       include: [
         {
           model: User,

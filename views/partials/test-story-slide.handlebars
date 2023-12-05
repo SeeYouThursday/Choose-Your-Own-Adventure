@@ -1,19 +1,16 @@
 <div>
   <section class='container'>
     <p>scenario texts</p>
-    
       <a
-        {{!-- type='button' --}}
         class='btn btn-primary next-choice'
-        href='/story/'
-        {{!-- value='' --}}
-            {{#if story_id}}
+      {{#if story_id}}
        data-story-id='{{story_id}}'
       {{else}}
-      data-id='1'
+      href='story/2'
+      data-story-id='1'
       {{/if}}
-      >{{Option1}}</a>
-      <a type='button' class='btn btn-primary next-choice' value='' data-id='{{story.story_line}}'>{{Option2}}</a>
+      >{{story.Option1}}</a>
+      <a type='button' class='btn btn-primary next-choice' value='' data-id='{{story.story_line}}'>{{story.Option2}}</a>
       {{!-- !the value and story_line are not passing through correctly --}}
     </form>
   </section>
@@ -21,12 +18,13 @@
     <button
       id='save-story'
       {{!-- if the storyline has just started, then set the data-id to 1 --}}
-     
+     data-story-id='{{id}}'
+     data-story-title='{{title}}'
       {{#if story_id}}
-       data-story-id='{{story_id}}'
-       
+      data-story-choice-set='{{story_id}}' 
       {{else}}
-      data-id='1'
+      data-story-choice-set='1'
+      
       data-story-title='{{title}}'
       {{/if}}
     >'Save Progress!'</button>
