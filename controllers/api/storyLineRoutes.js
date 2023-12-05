@@ -90,6 +90,7 @@ router.put('/update/:id', withAuth, async (req, res) => {
         where: { id: req.params.id },
       }
     );
+    res.status(200).json({ message: 'Story saved!' });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -198,7 +199,7 @@ router.get('/', withAuth, async (req, res) => {
                     .      '      .
                 .    .     :     .      .
                  '.        ______       .'
-                   '  _.-"`      `"-._ '
+                   '  _.-"``"-._ '
                     .'                '.
              ''--. /                    : .--''
                   /                      :
@@ -207,16 +208,16 @@ router.get('/', withAuth, async (req, res) => {
                  |     _.                 |
                  ;    /__'.   ,_          ;
              .-'  :   |= |;._.}{__       /  '-.
-                _.-""-|.' # '. `  `.-"{}<._
+                _.-""-|.' # '. ``.-"{}<._
                        /      l     l  x   '"
                  ----/         l_.-'|--X----
                  -=_ |         |    |- X.  =_
                 - __ |_________|_.-'|_X-X##
                 jgs ''-._|_|;:;_.-'' '::.  '"-
                   .:;.      .:.   ::.     '::.
-    `); 
+    `);
   } catch (err) {
-    console.log(err);   
+    console.log(err);
     res.status(500).json(err);
   }
 });

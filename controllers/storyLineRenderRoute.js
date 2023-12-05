@@ -5,11 +5,7 @@ const withAuth = require('../utils/auth');
 //Get Specific Storyline Set Directed from Dashboard
 router.get('/:id', withAuth, async (req, res) => {
   try {
-    const storyData = await StoryLine.findOne({
-      where: {
-        id: req.params.id,
-        // story_id: req.params.story_id,
-      },
+    const storyData = await StoryLine.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -18,48 +14,25 @@ router.get('/:id', withAuth, async (req, res) => {
         },
         {
           model: Story,
+          attributes: ['id', 'Option1', 'Option2'],
         },
       ],
     });
 
     const storyline = storyData.get({ plain: true });
+    // console.log(storyline);
+
     //TODO: replace with new handlebars file after complete
     res.render('test-story-flow', {
       ...storyline,
       logged_in: req.session.logged_in,
     });
+    // console.log('boop', res.json(storyline));
+    // res.status(200).json();
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
   }
 });
-
-//!Deprecated --Get Specific Story Choice Set //TODO make sure render is set properly
-// router.get('/story/:id', async (req, res) => {
-//   // !Needs to pull with the correct id -currently not working
-//   try {
-//     const storyData = await Story.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['id', 'username'],
-//           exclude: ['password'],
-//         },
-//         {
-//           model: StoryLine,
-//         },
-//       ],
-//     });
-
-//     const story = storyData.get({ plain: true });
-//     //TODO: replace with new handlebars file after complete
-//     res.render('test-story-flow', {
-//       ...story,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;
