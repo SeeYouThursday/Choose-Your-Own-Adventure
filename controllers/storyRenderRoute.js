@@ -8,11 +8,11 @@ router.get('/:id', withAuth, async (req, res) => {
   try {
     const storyData = await Story.findByPk(req.params.id, {
       include: [
-        // {
-        //   model: User,
-        //   attributes: ['id', 'username'],
-        //   exclude: ['password'],
-        // },
+        {
+          model: User,
+          attributes: ['id', 'username'],
+          exclude: ['password'],
+        },
         {
           model: StoryLine,
         },

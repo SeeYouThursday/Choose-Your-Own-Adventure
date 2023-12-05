@@ -1,45 +1,13 @@
 const continuingStory = [];
-//consider storing storyline in hb and passing it to the js file
-// const getStory = async () => {
-//   try {
-//     const id = document
-//       .querySelector('#save-story')
-//       .getAttribute('data-story-id');
-//     const response = await fetch(
-//       `${window.location.origin}/api/storyline/${id}`,
-//       {
-//         method: 'GET',
-//         headers: { 'Content-Type': 'application/json' },
-//       }
-//     );
-//     if (response.ok) {
-//       const data = await response.json();
-//       console.log('okay', data);
-//       if (data.story_line !== null) {
-//         continuingStory.push(data.story_line);
-//         console.log(continuingStory);
-//         return continuingStory;
-//       }
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+
 const updateStoryVar = () => {
   const story = document.querySelector('#save-story').getAttribute('data-id');
-  console.log(story);
   continuingStory.push(story);
   return continuingStory;
 };
 
-updateStoryVar();
-
-console.log('ln28', continuingStory);
-
-//?? Is this needed?
 const savedStoryHandler = async (event) => {
   event.preventDefault();
-  console.log('ln33', continuingStory);
 
   try {
     const id = event.target.getAttribute('data-choice-set-id');
@@ -48,7 +16,7 @@ const savedStoryHandler = async (event) => {
       method: 'PUT',
       body: JSON.stringify({
         story_line: continuingStory,
-        story_id: parseInt(storyId),
+        story_id: storyId,
         title: document.querySelector('#save-story').getAttribute('data-title'),
       }),
       headers: { 'Content-Type': 'application/json' },
@@ -62,34 +30,77 @@ const savedStoryHandler = async (event) => {
   }
 };
 
-// getStory();
+const btnHandler = async (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  const btns = document.querySelectorAll('.next-choice');
+  btns.forEach((btn) => {
+    btn.setAttribute('disabled', true);
+  });
+};
 
 const nextChoiceHandler = async (event) => {
   event.preventDefault();
-  // const id = document.getElementById('save-story');
-  // const currentId = id.getAttribute('data-id');
-  const storyChoice = event.target.value.toString();
-  console.log(storyChoice, 'ln64');
+  event.stopPropagation();
+
+  let storyId = event.target.getAttribute('data-story-choice-id');
+  let updatedStoryId = parseInt(storyId) + 1;
+
+  const storyChoice = event.target.value;
   if (storyChoice) {
-    continuingStory.push(`${storyChoice}`);
-    console.log(continuingStory, 'ln65');
-    return continuingStory;
+    continuingStory.push(storyChoice);
   } else {
     console.log('no choice');
   }
+
+  try {
+    const id = event.target.getAttribute('data-choice-set-id');
+
+    const response = await fetch(`/api/storyline/update/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        story_line: continuingStory,
+        story_id: updatedStoryId,
+        title: document.querySelector('#save-story').getAttribute('data-title'),
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      console.log({ message: 'Story saved!' });
+      document.location.replace('/dashboard');
+    }
+  } catch (err) {
+    console.log(err);
+  }
 };
 
-console.log(continuingStory, 'ln82');
-//push the choice string to the continuing story array
+const updateStory = async (selectedOption) => {
+  continuingStory.push(selectedOption);
+  return continuingStory;
+};
 
-//href to the next choice
-// document
-//   .querySelector('#story-choice')
-//   .addEventListener('submit', nextChoiceHandler);
+document.addEventListener('DOMContentLoaded', (event) => {
+  document
+    .getElementById('continue')
+    .addEventListener('click', async function (event) {
+      event.preventDefault();
+      const selectedOptionElement = document.querySelector(
+        'input[name="options-outlined"]:checked'
+      );
+      if (selectedOptionElement) {
+        const selectedOption = selectedOptionElement.value;
+        updateStory(selectedOption);
+      } else {
+        console.log('No option selected');
+      }
+    });
+});
+
+document
+  .querySelector('#story-choice')
+  .addEventListener('submit', nextChoiceHandler);
 
 document.querySelectorAll('.next-choice').forEach((choice) => {
-  choice.addEventListener('click', nextChoiceHandler);
+  choice.addEventListener('click', btnHandler);
 });
-// document
-//   .querySelector('#save-story')
-//   .addEventListener('click', savedStoryHandler);

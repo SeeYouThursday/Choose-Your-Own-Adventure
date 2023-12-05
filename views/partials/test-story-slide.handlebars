@@ -1,32 +1,43 @@
 <div>
   <section class='container'>
     <p>scenario texts</p>
-    <form id='story-choice'>
+    <form id='story-choice' data-story-choice-set='{{story_id}}'>
       <input
-        type='button'
-        class='btn btn-primary next-choice'
+        type='radio'
+        class='btn-check next-choice'
+        name='options-outlined'
+        id='success-outlined1'
         value='{{story.Option1}}'
-        data-story-id='{{story_id}}'
+        autocomplete='off'
       />
+      <label
+        class='btn btn-outline-success'
+        for='success-outlined1'
+      >{{story.Option1}}</label>
+      <br />
       <input
-        type='button'
-        class='btn btn-primary next-choice'
+        type='radio'
+        class='btn-check next-choice'
+        name='options-outlined'
+        id='success-outlined1'
         value='{{story.Option2}}'
+        autocomplete='off'
       />
-      {{! !the value and story_line are not passing through correctly }}
-      <div><button type='submit'>Continue</button>
+      <label
+        class='btn btn-outline-success'
+        for='success-outlined2'
+      >{{story.Option2}}</label>
+
+      <div><button type='submit' id='continue'>Continue</button>
         <button
           id='save-story'
           {{! if the storyline has just started, then set the data-id to 1 }}
           data-id='{{story_line}}'
           data-story-id='{{id}}'
           data-story-title='{{title}}'
-          data-story-choice-set='{{story_id}}'
         >'Save Progress (and Exit?)!'</button></div>
     </form>
   </section>
-  <form>
 
-  </form>
 </div>
 <script src='/js/storyhandling.js'></script>
