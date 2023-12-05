@@ -13,9 +13,9 @@ const startNewAdventureHandler = async (event) => {
       });
       console.log(title, storyline);
       if (response.ok) {
-        response.status(201).json({ message: 'Adventure started!' });
+        response.json({ message: 'Adventure started!' });
         //TODO: Redirect to the story handling hb pages
-        // document.location.replace('/dashboard');
+        document.location.replace('/start');
       }
     }
   } catch (error) {
@@ -25,5 +25,5 @@ const startNewAdventureHandler = async (event) => {
 
 // Event Listeners
 document
-  .querySelector('#start-story')
-  .addEventListener('submit', startNewAdventureHandler);
+  .querySelector('#save-begin')
+  .addEventListener('click', startNewAdventureHandler);
