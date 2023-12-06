@@ -1,6 +1,6 @@
 document
   .querySelector('body')
-  .setAttribute('style', "background-image: url('/images/landing-background.png'); background-size: cover; height: 100vh; background-color: black;");
+  .setAttribute('style', "background-color: black;");
 
 async function landingFormHandler(event) {
     event.preventDefault();
