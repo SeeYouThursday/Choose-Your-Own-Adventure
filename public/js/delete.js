@@ -8,7 +8,7 @@ async function deleteFormHandler(event) {
     ];
 
     //DELETE request to api endpoint
-    const response = await fetch(`/api/story/${id}`, {
+    const response = await fetch(`/api/storyline/${id}`, {
         method: 'DELETE',
         body: JSON.stringify({
             story_id: id,
@@ -18,7 +18,7 @@ async function deleteFormHandler(event) {
 
     //redirect to dashboard
     if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/dashboard');
     } else {
         alert(response.statusText);
     }
