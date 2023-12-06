@@ -4,7 +4,7 @@ const story_meta = document.getElementById('save-exit');
 let story_id = story_meta.getAttribute('data-story-id');
 
 //update story_id
-const updateStoryId = () => {
+const updateStoryId = async () => {
   console.log(story_id);
   if (story_id === 8) {
     return;
@@ -133,7 +133,6 @@ document.getElementById('save-exit').addEventListener('click', async () => {
   } catch (error) {
     console.log(error);
   }
-});
 
 document
   .querySelectorAll('.next-choice')

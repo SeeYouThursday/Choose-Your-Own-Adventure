@@ -1,6 +1,6 @@
 <div>
   <section class='container'>
-    <p>scenario texts</p>
+    <p class="text-light">scenario texts</p>
     <form
       id='story-choice'
       data-story-choice-set='{{story_id}}'
@@ -15,13 +15,12 @@
         name='options-outlined'
         id='success-outlined1'
         value='{{story.Option1}}'
-        autocomplete='off'
-      />
+        autocomplete='off'>
       <label
         class='btn btn-outline-success'
-        for='success-outlined1'
-      >{{story.Option1}}</label>
-      <br />
+        for='success-outlined1'>{{story.Option1}}
+      </label>
+      <br>
 
       <input
         type='radio'
@@ -29,8 +28,7 @@
         name='options-outlined'
         id='success-outlined2'
         value='{{story.Option2}}'
-        autocomplete='off'
-      />
+        autocomplete='off'/>
       <label
         class='btn btn-outline-success'
         for='success-outlined2'
@@ -48,6 +46,30 @@
       >'Save Progress (and Exit?)!'</button>
     </div>
 
+
+      <div>
+        <br><br>
+        <button type='submit' style='background-color: pink' id='continue'>continue</button>
+
+        <button
+          id='save-story'
+          style='background-color:pink'
+          {{! if the storyline has just started, then set the data-id to 1 }}
+          data-id='{{story_line}}'
+          data-story-id='{{story_id}}'
+          data-story-title='{{title}}'>save</button>
+
+          <button
+          id='delete-story'
+          class='delete-btn'
+          style='background-color:pink'
+          {{! if the storyline has just started, then set the data-id to 1 }}
+          data-id='{{story_line}}'
+          data-story-id='{{story_id}}'
+          data-story-title='{{title}}'>delete</button>
+      </div>
+
+    </form>
   </section>
 
 </div>
