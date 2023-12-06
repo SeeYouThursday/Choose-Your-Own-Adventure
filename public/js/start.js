@@ -32,12 +32,12 @@ const startNewAdventureHandler = async (event) => {
         if (!allElementsInDiv.length) {
           document.location.replace('/storyline/1');
         } else {
-          const maxId = getMaxId(allElementsInDiv);
+          let maxId = getMaxId(allElementsInDiv);
           console.log(maxId);
           if (maxId === 0) {
-            document.location.replace(`/storyline/${maxId + 1}`);
+            document.location.replace(`/storyline/${maxId++}`);
           } else if (maxId !== -Infinity) {
-            // document.location.replace(`/stosryline/${maxId}`);
+            document.location.replace(`/storyline/${maxId}`);
           } else {
             console.log('uh-oh error');
           }

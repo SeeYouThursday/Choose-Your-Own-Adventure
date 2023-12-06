@@ -99,7 +99,7 @@ router.put('/update/:id', withAuth, async (req, res) => {
 //Delete story-line if user wants to delete from their dashboard
 
 //Delete Post
-router.delete('delete/:id', withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const storyData = await StoryLine.destroy({
       where: {
@@ -108,13 +108,13 @@ router.delete('delete/:id', withAuth, async (req, res) => {
       },
     });
 
-    if (!postData) {
+    if (!storyData) {
       res.status(404).json({ message: 'No Story found with this id!' });
       return;
     } else {
       res.status(200).json(storyData);
     }
-  } catch {
+  } catch (err) {
     res.status(500).json(err);
   }
   console.log(`
