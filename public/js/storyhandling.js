@@ -4,9 +4,9 @@ const story_meta = document.getElementById('save-exit');
 let story_id = story_meta.getAttribute('data-story-id');
 
 //update story_id
-const updateStoryId = async () => {
+const updateStoryId = () => {
   console.log(story_id);
-  if (story_id === 8) {
+  if (story_id === 10) {
     return;
   }
   let updatedStoryId = ++story_id;
@@ -54,13 +54,13 @@ const updateDb = async () => {
     let storyIdToReturn = updateStoryId();
     let id = document
       .getElementById('story-choice')
-      .getAttribute('data-story-id');
+      .getAttribute('data-user-id');
     console.log(id);
 
     const updated = await fetch(`/api/storyline/update/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        story_id: storyIdToReturn,
+        story_id: storyIdToReturn.toString(),
         story_line: updatedStoryBtns.toString(),
       }),
       headers: { 'Content-Type': 'application/json' },
@@ -111,7 +111,19 @@ const handleBtnandDb = async (event) => {
   await updateDb();
   await verifyUpdate();
 };
+const pingPongNextPage = () => {
+  const button = document.getElementById('continue');
+  const pingPong = button.dataset.pingPong === 'false';
+  const storylineId = window.location.pathname.split('/');
+  const pingpongLoc = storylineId[storylineId.length - 1];
 
+  const baseUrl = window.location.origin;
+  const nextPageUrl = pingPong
+    ? `${baseUrl}/storyline/pingpong/${pingpongLoc}`
+    : `${baseUrl}/storyline/${pingpongLoc}`;
+
+  window.location.replace(nextPageUrl);
+};
 //Event Listeners
 // document
 //   .getElementById('story-choice')
@@ -120,8 +132,9 @@ const handleBtnandDb = async (event) => {
 //btns submit form with their value, but do not reload page
 document.getElementById('continue').addEventListener('click', async () => {
   // await dbUpdate();
-  await verifyUpdate();
-  window.location.replace(`/storyline/`);
+  // await verifyUpdate();
+  // window.location.replace(`/storyline/`);
+  pingPongNextPage();
 });
 
 //Save and Exit Function
@@ -129,10 +142,11 @@ document.getElementById('save-exit').addEventListener('click', async () => {
   try {
     // await updateDb();
     await verifyUpdate();
-    // window.location.replace(`/dashboard`);
+    window.location.replace(`/dashboard`);
   } catch (error) {
     console.log(error);
   }
+});
 
 document
   .querySelectorAll('.next-choice')
