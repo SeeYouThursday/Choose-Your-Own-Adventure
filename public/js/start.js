@@ -16,7 +16,6 @@ const startNewAdventureHandler = async (event) => {
         const data = response.json({ message: 'Adventure started!' });
         console.log(data);
 
-        //??get id of last element in story-list and add 1 to get to new storyline
         function getMaxId(elements) {
           return Math.max(
             ...elements
@@ -28,10 +27,20 @@ const startNewAdventureHandler = async (event) => {
 
         const div = document.getElementById('story-list');
         const allElementsInDiv = [...div.getElementsByTagName('*')];
-        const maxId = getMaxId(allElementsInDiv);
 
-        if (maxId !== -Infinity) {
-          document.location.replace(`/storyline/${maxId}`);
+        // If there are no elements, redirect to '/storyline/1'
+        if (!allElementsInDiv.length) {
+          document.location.replace('/storyline/1');
+        } else {
+          const maxId = getMaxId(allElementsInDiv);
+          console.log(maxId);
+          if (maxId === 0) {
+            document.location.replace(`/storyline/${maxId + 1}`);
+          } else if (maxId !== -Infinity) {
+            // document.location.replace(`/stosryline/${maxId}`);
+          } else {
+            console.log('uh-oh error');
+          }
         }
       }
     }

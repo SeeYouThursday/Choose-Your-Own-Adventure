@@ -128,13 +128,17 @@ console.log(`initial update ${continuingStory}`);
 //update story_line
 
 const storyToStore = () => {
-  const choiceOne = document.querySelector('input[name="option-outlined1"]');
-  const choiceTwo = document.querySelector('input[name="option-outlined2"]');
+  const choiceOne = document.querySelector(
+    'input[name="option-outlined1"]:checked'
+  );
+  const choiceTwo = document.querySelector(
+    'input[name="option-outlined2"]:checked'
+  );
   if (choiceOne) {
     continuingStory.push(choiceOne.value);
     console.log(`choice1 ${continuingStory}`);
     return continuingStory;
-  } else if (document.querySelector('input[name="option-outlined2"]:checked')) {
+  } else if (choiceTwo) {
     continuingStory.push(choiceTwo.value);
     console.log(`choice1 ${continuingStory}`);
     return continuingStory;
@@ -143,25 +147,24 @@ const storyToStore = () => {
   }
 
   //Update (PUT) route
-
-  // continuingStory.push(storyToStore);
-
-  // return continuingStory;
+  const updatedStory = continuingStory.map((story) => story);
+  console.log(147, updatedStory);
 };
 
-const storyIdToReturn = updateStoryId();
-const updateDb = async (event) => {
-  event.preventDefault();
-  event.stopPropagation();
+let storyIdToReturn = updateStoryId();
+console.log(storyIdToReturn, 155);
+const updateDb = async () => {
   try {
-    let id = event.target.getAttribute('data-story-id');
+    let id = document
+      .getElementById('story-choice')
+      .getAttribute('data-story-id');
     console.log(id);
 
     const updated = await fetch(`/api/storyline/update/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        story_line: storyToStore(),
-        story_id: storyIdToReturn,
+        story_line: updatedStoryBtns.toString(),
+        story_id: storyIdToReturn++,
       }),
       headers: { 'Content-Type': 'application/json' },
     });
@@ -181,7 +184,35 @@ const choiceHandler = async (event) => {
     console.error(error);
   }
 };
+const btnSubmitHandler = (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  const answer = event.target.value;
+  console.log(`this answer ${answer}`);
+  continuingStory.push(answer);
+  updatedStoryBtns = continuingStory.map((story) => story);
+  console.log('bllooop', updatedStoryBtns);
+  return updatedStoryBtns;
+};
+
+const handleBtnandDb = async (event) => {
+  btnSubmitHandler(event);
+  const updateDBpls = updatedStoryBtns;
+  console.log(updateDBpls, 1122332);
+  updateDb();
+};
 //Event Listeners
+
+// document
+//   .getElementById('story-choice')
+//   .addEventListener('submit', btnSubmitHandler);
+
+//btns submit form with their value, but do not reload page
+document.getElementById('continue').addEventListener('click', () => {
+  window.location.reload();
+});
+
 document
-  .getElementById('story-choice')
-  .addEventListener('submit', choiceHandler);
+  .querySelectorAll('.next-choice')
+  .forEach((element) => element.addEventListener('click', handleBtnandDb));
+//Continue goes to next page, clicking a btn submits the form with the value.

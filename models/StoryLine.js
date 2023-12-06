@@ -18,7 +18,7 @@ StoryLine.init(
       // unique: true,
     },
     story_line: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(5000),
     },
     user_id: {
       type: DataTypes.INTEGER,
