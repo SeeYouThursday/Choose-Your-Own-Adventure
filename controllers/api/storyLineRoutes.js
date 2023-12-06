@@ -165,8 +165,8 @@ router.get('/:id', withAuth, async (req, res) => {
         },
       ],
     });
-    // const storyline = storyData.get({ plain: true });
-    res.json(storyData);
+    const storyline = storyData.get({ plain: true });
+    res.json(storyline);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

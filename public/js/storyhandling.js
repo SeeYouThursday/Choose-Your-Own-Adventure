@@ -111,10 +111,13 @@ const story_meta = document.getElementById('save-story');
 let story_id = story_meta.getAttribute('data-story-id');
 
 //update story_id
-const updateStoryId = () => {
+const updateStoryId = async () => {
   console.log(story_id);
-  let updatedStoryId = story_id++;
-  return updatedStoryId;
+  if (story_id === 8) {
+    return;
+  }
+  let updatedStoryId = ++story_id;
+  return updatedStoryId.toString();
 };
 
 // console.log('updated', updateStoryId()); //returns incremented story_id
@@ -155,6 +158,7 @@ let storyIdToReturn = updateStoryId();
 console.log(storyIdToReturn, 155);
 const updateDb = async () => {
   try {
+    let storyIdToReturn = await updateStoryId();
     let id = document
       .getElementById('story-choice')
       .getAttribute('data-story-id');
@@ -163,8 +167,8 @@ const updateDb = async () => {
     const updated = await fetch(`/api/storyline/update/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
+        story_id: '6',
         story_line: updatedStoryBtns.toString(),
-        story_id: storyIdToReturn++,
       }),
       headers: { 'Content-Type': 'application/json' },
     });
@@ -195,20 +199,34 @@ const btnSubmitHandler = (event) => {
   return updatedStoryBtns;
 };
 
+const verifyUpdate = async () => {
+  try {
+    const response = await fetch(`${window.location.origin}/api/storyline/1`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 const handleBtnandDb = async (event) => {
   btnSubmitHandler(event);
-  const updateDBpls = updatedStoryBtns;
-  console.log(updateDBpls, 1122332);
-  updateDb();
+  // console.log(updateDBpls, 1122332);
+  await updateDb();
+  await verifyUpdate();
 };
-//Event Listeners
 
+//Event Listeners
 // document
 //   .getElementById('story-choice')
 //   .addEventListener('submit', btnSubmitHandler);
 
 //btns submit form with their value, but do not reload page
 document.getElementById('continue').addEventListener('click', () => {
+  dbUpdate();
   window.location.reload();
 });
 
