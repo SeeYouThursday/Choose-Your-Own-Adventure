@@ -4,7 +4,10 @@
     <form
       id='story-choice'
       data-story-choice-set='{{story_id}}'
-      data-story-id='{{story_id}}'>
+      data-story-id='{{story_id}}'
+      method='PUT'
+      data-user-id='{{id}}'
+    >
 
       <input
         type='radio'
@@ -28,9 +31,21 @@
         autocomplete='off'/>
       <label
         class='btn btn-outline-success'
-        for='success-outlined2'>
-        {{story.Option2}}
-      </label>
+        for='success-outlined2'
+      >{{story.Option2}}</label>
+    </form>
+    <div>
+      <button type='BUTTON' id='continue'>Continue</button>
+
+      <button
+        id='save-exit'
+        {{! if the storyline has just started, then set the data-id to 1 }}
+        data-id='{{story_line}}'
+        data-story-id='{{story_id}}'
+        data-story-title='{{title}}'
+      >'Save Progress (and Exit?)!'</button>
+    </div>
+
 
       <div>
         <br><br>
