@@ -1,10 +1,11 @@
 <div id='story-list'>
-  <h4>Saved Games</h4>
+  <h4 class="text-light">saved adventures</h4>
   {{! use cards here? }}
   {{#if storylines.length}}
     {{#each storylines}}
       <a
-        class='btn btn-primary'
+        class='btn btn-primary btn-sm text-light'
+        style='background-color:red;'
         role='button'
         href='/storyline/{{id}}'
         id='{{id}}'
