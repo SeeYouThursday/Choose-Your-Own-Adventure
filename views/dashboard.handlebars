@@ -1,14 +1,18 @@
-{{#if stories.length}}
 <section>
-  <h2 class="text-left"><img src="/images/dashboard.png" height="100px"></h2>
-  {{!-- add image --}}
-    {{#each stories as |story|}}
-    {{!-- partials view --}}
-      {{> dash-detail story}}
-    {{/each}}
+  <div>
+    <h3 class="text-left text-light">{{username}}'s dashboard</h3>
+  </div>
+  <div>
+    {{>new-story}}
+  </div>
+  <div>
+    {{!-- SAVED GAMES LIST --}}
+    {{>saved}}
+  </div>
 </section>
-{{/if}}
 
-<button type="submit" class="btn"><a class="link text-light" href="/dashboard/new">new story</a></button>
-
-
+<footer class='container'>
+    <div>
+        <img class="img-fluid" src="/images/tree.png" height="400px">
+    </div>
+</footer>
