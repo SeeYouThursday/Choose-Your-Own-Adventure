@@ -23,9 +23,9 @@ const startNewAdventureHandler = async (event) => {
           headers: { 'Content-Type': 'application/json' },
         });
         const dataHere = await ihatemylife.json();
-        console.log(dataHere);
+        console.log(dataHere[0].id);
 
-        document.location.replace(`storyline/${dataHere.id}`);
+        document.location.replace(`storyline/${dataHere[0].id}`);
       }
     }
   } catch (error) {
