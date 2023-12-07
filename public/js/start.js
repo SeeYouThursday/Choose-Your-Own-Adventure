@@ -19,7 +19,7 @@ const startNewAdventureHandler = async (event) => {
         function getMaxId(elements) {
           return Math.max(
             ...elements
-              .map((el) => el.id)
+              .map((elements) => elements.id)
               .filter((id) => !isNaN(Number(id)))
               .map(Number)
           );
@@ -35,7 +35,7 @@ const startNewAdventureHandler = async (event) => {
           let maxId = getMaxId(allElementsInDiv);
           console.log(maxId);
           if (maxId === 0) {
-            document.location.replace(`/storyline/${maxId++}`);
+            document.location.replace(`/storyline/${maxId ++ }`);
           } else if (maxId !== -Infinity) {
             document.location.replace(`/storyline/${maxId}`);
           } else {
