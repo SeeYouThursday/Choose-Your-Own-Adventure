@@ -16,53 +16,18 @@ const startNewAdventureHandler = async (event) => {
         const data = await response.json({ message: 'Adventure started!' });
         console.log(data);
 
-        function getMaxId(elements) {
-          return Math.max(
-            ...elements
-              .map((elements) => elements.id)
-              .filter((id) => !isNaN(Number(id)))
-              .map(Number)
-          );
-        }
-
-        const div = document.getElementById('story-list');
+        // const div = document.getElementById('story-list');
         ////fetch to get new storyline_id
         const ihatemylife = await fetch(`api/storyline/`, {
-          method: 'GET'
-        })
-        // if (div.getElementsByTagName('*').length > 0) {
-        //   function getMaxId(elements) {
-        //     return Math.max(
-        //       ...elements
-        //         .map((el) => el.id)
-        //         .filter((id) => !isNaN(Number(id)))
-        //         .map(Number)
-        //     );
-        //   }
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
+        const dataHere = await ihatemylife.json();
+        console.log(dataHere);
 
-          // const div = document.getElementById('story-list');
-      //     const allElementsInDiv = [...div.getElementsByTagName('*')];
-
-      //     // If there are no elements, redirect to '/storyline/1'
-      //     if (!allElementsInDiv.length) {
-      //       // document.location.replace('/storyline/1'); //doesn't always go to one
-      //     } else {
-      //       let maxId = getMaxId(allElementsInDiv);
-      //       console.log(maxId);
-      //       if () {
-      //         document.location.reload();
-      //         document.location.replace(`/storyline/${maxId++}`);
-      //       } else if (maxId !== -Infinity) {
-      //         document.location.reload();
-      //         document.location.replace(`/storyline/${maxId}`);
-      //       } else {
-      //         console.log('uh-oh error');
-      //       }
-      //     }
-      //   }
-      // } else {
-      // }
-    // }
+        document.location.replace(`storyline/${dataHere.id}`);
+      }
+    }
   } catch (error) {
     console.log(error);
   }
