@@ -194,8 +194,7 @@ Here's a list of technologies used:
 ### ![links](./luck/branding/6.png)
 
 ##### [_github repo_](https://github.com/seeyouthursday/choose-your-own-adventure)
-
-##### [_deployed app_](https://createyourownadventure-5cf1f78476c3.herokuapp.com/dashboard)
+##### [*deployed app*](https://createyourownadventure-5cf1f78476c3.herokuapp.com/dashboard)
 
 ### ![connect](./luck/branding/7.png)
 
