@@ -29,7 +29,11 @@ async function loginFormHandler(event) {
     //redirect to dashboard
     if (response.ok) {
       const confetti = new JSConfetti();
-      await confetti.addConfetti();
+      await confetti.addConfetti({
+        emojis: ['🐠'],
+        emojiSize: 40,
+        confettiNumber: 100,
+    });
       document.location.replace('/dashboard');
     } else {
       // alert(response.statusText);

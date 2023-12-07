@@ -138,7 +138,7 @@ nodemon server
 3. Open the [application]() deployed on [Heroku](https://heroku.com/home)
 4. Signup by creating a **username/password**
 5. *Create*, *update*, and *delete* stories through your dashboard
-6. *View* all stories via the homepage
+6. *View* all stories via the dashboard
 7. *Logout* to leave the application
 
 ### ![screenshot](./luck/branding/12.png)
