@@ -145,9 +145,9 @@ nodemon server
 
 ##### *screenshot demonstrates `STROKE OF LUCK's` back end, testing all routes with **Insomnia**, and the functional application deployed on **Heroku***
 
-<!-- <p align="center">
+<p align="center">
 <img src="./luck/demo/ss.png"/>
-</p> -->
+</p>
 
 ### ![demo](./luck/branding/13.png)
 
