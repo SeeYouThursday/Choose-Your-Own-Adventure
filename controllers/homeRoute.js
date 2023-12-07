@@ -65,7 +65,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     const stories = myStories.get({ plain: true });
     console.log(stories);
-    res.render('test-dashboard', {
+    res.render('dashboard', {
       ...stories,
       logged_in: req.session.logged_in,
     });
