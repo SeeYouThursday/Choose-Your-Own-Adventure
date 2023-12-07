@@ -65,9 +65,9 @@
 
 ### ![luck-list](./luck/branding/11.png)
 
-<!-- <p align="center">
-  <img src="./abductions/branding/probe-list.png"/>
-</p> -->
+<p align="center">
+  <img src="./luck/branding/luck-list.png"/>
+</p>
 
 <!-- ### ![team](./luck/branding/.png) -->
 <!-- <p align="center">
