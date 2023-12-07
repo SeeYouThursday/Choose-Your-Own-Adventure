@@ -1,5 +1,5 @@
 //get initial story_id from data-story-id
-const story_meta = document.getElementById('save-story');
+const story_meta = document.getElementById('save-exit');
 // initial story_id below
 let story_id = story_meta.getAttribute('data-story-id');
 
