@@ -42,8 +42,7 @@ router.get('/home', async (req, res) => {
              /^>                           ///,--~'-.
             '  ' 
 join the adventure:
-http://localhost:${PORT}`));
-});
+http://localhost:${PORT}`);
   } catch (err) {
     res.status(500).json(err);
   }
