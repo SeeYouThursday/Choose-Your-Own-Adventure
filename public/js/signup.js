@@ -2,10 +2,7 @@
 
 document
   .querySelector('body')
-  .setAttribute(
-    'style',
-    "background-image: url('/images/signup.png'); background-size: cover; height: 100vh; background-color: black;"
-  );
+  .setAttribute('style', "background-image: url('/images/signup.png'); background-size: cover; height: 100vh; background-color: black;");
 
 //signup form
 async function signupFormHandler(event) {
