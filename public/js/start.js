@@ -17,7 +17,9 @@ const startNewAdventureHandler = async (event) => {
         console.log(data);
         const div = document.getElementById('story-list');
         ////fetch to get new storyline_id
-        
+        const ihatemylife = await fetch(`api/storyline/`, {
+          method: 'GET'
+        })
         // if (div.getElementsByTagName('*').length > 0) {
         //   function getMaxId(elements) {
         //     return Math.max(
