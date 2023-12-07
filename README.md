@@ -159,7 +159,48 @@ nodemon server
 
 There are different tools available that can test reading/writing operations in a web browser - in this application we use [Insomnia](https://insomnia.rest/), a *REST client* that makes it easy to send **HTTP requests** to an API and view response details.
 
-<!-- add testing elements -->
+1. After installing Insomnia, open a new document.
+
+2. Interact with `STROKE OF LUCK'S` back end by testing the below commands:
+
+##### **GET** all users & stories
+```json
+http://localhost:3001/api/user
+```
+```json
+http://localhost:3001/api/story
+```
+
+##### **GET** user by *id*
+```json
+http://localhost:3001/api/user/1
+```
+
+##### **CREATE** story
+```json
+http://localhost:3001/api/story/
+```
+```json
+{
+	"title": "",
+	"content": ""
+}
+```
+
+##### **UPDATE** story
+```json
+http://localhost:3013/api/post/1
+```
+```json
+{
+  "title": "",
+  "content": ""
+}
+```
+##### **DELETE** story
+```json
+http://localhost:3013/api/story/
+```
 
 #
 
