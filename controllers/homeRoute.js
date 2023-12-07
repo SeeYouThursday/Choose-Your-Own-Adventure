@@ -50,7 +50,7 @@ router.get('/home', async (req, res) => {
        ;'( ')/ ,)(                              ~~~~~~~~~~                         
       ' ') '( (/                                                                   
         '   '  '
-    `);;
+    `);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -186,5 +186,35 @@ router.get('/signup', (req, res) => {
   `);
 });
 
+router.get('/end/:id', withAuth, async (req, res) => {
+  try {
+    const storyData = await StoryLine.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+          exclude: ['password'],
+        },
+        {
+          model: Story,
+          attributes: ['id', 'Option1', 'Option2'],
+        },
+      ],
+    });
 
+    const storyline = storyData.get({ plain: true });
+    // console.log(storyline);
+
+    //TODO: replace with new handlebars file after complete
+    res.render('endpage', {
+      ...storyline,
+      logged_in: req.session.logged_in,
+    });
+    // console.log('boop', res.json(storyline));
+    // res.status(200).json();
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
