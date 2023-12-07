@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ defaultLayout: 'main' });
 
 const sess = {
-  secret: process.env.SECRET,
+  secret: 'luck secret',
   cookie: {
     maxAge: 20000000,
     httpOnly: true,
@@ -41,32 +41,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () =>
-    console.log(`
-=============================================================================
-************************ STROKE YOUR LUCK'S BACK END ************************          
-=============================================================================                           
-
-                                               _   __,----'~~~~~~~~~'-----.__
-                                        .  .    '//====-              ____,-'~'
-                        -.            L_L// .   /||;;  '~~~~'---.___./
-                  ______-==.       _-~o  ';/    |||  ;;           _,''
-            __,--'   ,=='||l=_    ;_,_,/ _-'|-   |';   ll        ,'
-         _-'      ,='    | ll'.    '',/~7  /-   /  ||   'l.     /
-       .'       ,'       |  ll  ;_  "  /  /-   /   ||      l   /
-      / _____  /         |     ll.'-_/  /|- _/   ,||       l /
-     ,-'     '-|--'~~'--_ ;     '==-/  '| ;'--===-'       _/'
-               '         '-|      /|    )-';~'      _,--"'
-                           '-~^l_/ |    |   ';_   ,^             /.
-                                /  l     l__   ;/~               'l__
-                            _,-' _/'; ,-'~____-''-/                 ''===l
-                           ((->/'    ;|||' '.     ';.  ,                _||
-             ./                       ;_     ';      '~---|__i__i__l--~'_/
-            <_n_                     __-^-_    ')  l-.______________,-~'
-             'B'l)                  ///,-'~'__--^-  |-------~~~~^'
-             /^>                           ///,--~'-.
-            '  ' 
-join the adventure:
-http://localhost:${PORT}`)
-  );
+  app.listen(PORT, () => console.log('Now listening'));
 });
