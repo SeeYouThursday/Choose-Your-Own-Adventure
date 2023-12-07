@@ -138,9 +138,9 @@ document.getElementById('continue').addEventListener('click', async () => {
 });
 
 //Save and Exit Function
-document.getElementById('save-exit').addEventListener('click', async () => {
+story_meta.addEventListener('click', async () => {
   try {
-    // await updateDb();
+    await updateDb();
     await verifyUpdate();
     window.location.replace(`/dashboard`);
   } catch (error) {
