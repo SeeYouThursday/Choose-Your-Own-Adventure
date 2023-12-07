@@ -34,6 +34,12 @@ async function signupFormHandler(event) {
     console.log(response);
     //redirect to dashboard
     if (response.ok) {
+      const confetti = new JSConfetti();
+      await confetti.addConfetti({
+        emojis: ['🐓'],
+        emojiSize: 40,
+        confettiNumber: 100,
+    });
       document.location.replace('/dashboard');
     } else {
       //TODO: change to a modal!
