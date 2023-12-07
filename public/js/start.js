@@ -15,6 +15,16 @@ const startNewAdventureHandler = async (event) => {
       if (response.ok) {
         const data = await response.json({ message: 'Adventure started!' });
         console.log(data);
+
+        function getMaxId(elements) {
+          return Math.max(
+            ...elements
+              .map((elements) => elements.id)
+              .filter((id) => !isNaN(Number(id)))
+              .map(Number)
+          );
+        }
+
         const div = document.getElementById('story-list');
         ////fetch to get new storyline_id
         const ihatemylife = await fetch(`api/storyline/`, {

@@ -23,7 +23,7 @@ router.get('/:id', withAuth, async (req, res) => {
     // console.log(storyline);
 
     //TODO: replace with new handlebars file after complete
-    res.render('test-story-flow', {
+    res.render('story-flow', {
       ...storyline,
       logged_in: req.session.logged_in,
     });
