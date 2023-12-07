@@ -19,14 +19,14 @@
 ### ![table-of-contents](./luck/branding/toc.png)
 
 - [OVERVIEW](#overview)
-  - [_user story_](#user-story)
-  - [_concept design_](#concept-design)
-  - [_luck list_](#luck-list)
-  - [_the adventure team_](#team)
+  - [*user story*](#user-story)
+  - [*concept design*](#concept-design)
+  - [*luck list*](#luck-list)
+  - [*the adventure team*](#team)
 - [INSTALLATION](#installation)
 - [USAGE](#usage)
-  - [_screenshot_](#screenshot)
-  - [_demo_](#demo)
+  - [*screenshot*](#screenshot)
+  - [*demo*](#demo)
 - [TESTING](#testing)
 - [SOURCES](#sources)
 - [LICENSE](#license)
@@ -37,13 +37,13 @@
 
 `STROKE OF LUCK` is an interactive **Choose Your Own Adventure (CYOA)** game where adventurers partake on a journey, guided by chance. The app follows the MVC paradigm in its architectural structure, using [Handlebars.js](https://handlebarsjs.com/) as the templating language,[Sequelize](https://www.npmjs.com/package/sequelize) as the ORM, the [express-session](https://www.npmjs.com/package/express-session) npm package for authentication, and [Heroku](https://www.heroku.com/), the platform hosting the application.
 
-- [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement [Handlebars.js]() for _views_.
+* [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement [Handlebars.js]() for *views*.
 
-- [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to `STROKE OF LUCK's` **database** for _models_
+* [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to `STROKE OF LUCK's` **database** for *models*
 
-- [Express.js](https://expressjs.com/) API for _controllers_.
+* [Express.js](https://expressjs.com/) API for *controllers*.
 
-- [dotenv](https://www.npmjs.com/package/dotenv) package to use environment variables to **store sensitive data**, [bcrypt package](https://www.npmjs.com/package/bcrypt) to **hash passwords**, & [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add **authentication**.
+* [dotenv](https://www.npmjs.com/package/dotenv) package to use environment variables to **store sensitive data**, [bcrypt package](https://www.npmjs.com/package/bcrypt) to **hash passwords**, & [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add **authentication**.
 
 #
 
@@ -80,15 +80,14 @@
 
 The application is invoked using the following commands:
 
-##### _Clone the repository in your local development enviornment._
-
+##### *Clone the repository in your local development enviornment.*
 ```
 git clone https://github.com/seeyouthursday/choose-your-own-adventure.git
 ```
 
-##### **Create a _.env_ with your information**
+##### **Create a *.env* with your information**
 
-##### _Navigate to the command line and input:_
+##### *Navigate to the command line and input:*
 
 ```javascript
 npm i :: express, mysql2, dotenv --save, sequelize, nodemon --save-dev, handlebars, express-session, express-handlebars, bcypt, connect-session-sequelize
@@ -131,13 +130,13 @@ nodemon server
 
 3. Open the [application]() deployed on [Heroku](https://heroku.com/home)
 4. Signup by creating a **username/password**
-5. _Create_, _update_, and _delete_ stories through your dashboard
-6. _View_ all stories via the homepage
-7. _Logout_ to leave the application
+5. *Create*, *update*, and *delete* stories through your dashboard
+6. *View* all stories via the homepage
+7. *Logout* to leave the application
 
 ### ![screenshot](./luck/branding/12.png)
 
-##### \*screenshot demonstrates `STROKE OF LUCK's` back end, testing all routes with **Insomnia**, and the functional application deployed on **Heroku\***
+##### *screenshot demonstrates `STROKE OF LUCK's` back end, testing all routes with **Insomnia**, and the functional application deployed on **Heroku***
 
 <!-- <p align="center">
 <img src="./luck/demo/ss.png"/>
@@ -151,7 +150,7 @@ nodemon server
 
 **TESTING WITH INSOMNIA:**
 
-There are different tools available that can test reading/writing operations in a web browser - in this application we use [Insomnia](https://insomnia.rest/), a _REST client_ that makes it easy to send **HTTP requests** to an API and view response details.
+There are different tools available that can test reading/writing operations in a web browser - in this application we use [Insomnia](https://insomnia.rest/), a *REST client* that makes it easy to send **HTTP requests** to an API and view response details.
 
 <!-- add testing elements -->
 
@@ -169,7 +168,7 @@ Here's a list of technologies used:
 
 4. [MySQL2](https://www.npmjs.com/package/mysql2) - MySQL is a relational database management system based on SQL – Structured Query Language.
 
-5. [Sequelize](https://sequelize.org/) - a Node.js based `Object Relational Mapper` that makes it easy to work with **MySQL databases**. An _Object Relational Mapper_ performs functions like handling database records by representing the data as objects.
+5. [Sequelize](https://sequelize.org/) - a Node.js based `Object Relational Mapper` that makes it easy to work with **MySQL databases**. An *Object Relational Mapper* performs functions like handling database records by representing the data as objects.
 
 6. [express-handlebars](https://www.npmjs.com/package/express-handlebars) - a Handlebars view engine for Express which doesn't suck.
 
@@ -193,8 +192,8 @@ Here's a list of technologies used:
 
 ### ![links](./luck/branding/6.png)
 
-##### [_github repo_](https://github.com/seeyouthursday/choose-your-own-adventure)
-##### [*deployed app*](https://createyourownadventure-5cf1f78476c3.herokuapp.com/dashboard)
+##### [*github repo*](https://github.com/seeyouthursday/choose-your-own-adventure)
+##### [*deployed app*](https://createyourownadventure-5cf1f78476c3.herokuapp.com/)
 
 ### ![connect](./luck/branding/7.png)
 
