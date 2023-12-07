@@ -15,6 +15,7 @@ router.post('/start', withAuth, async (req, res) => {
     });
 
     res.status(200).json(storyData);
+    res.render('homepage');
   } catch (error) {
     res.status(400).json(error);
   }
@@ -175,19 +176,22 @@ router.get('/:id', withAuth, async (req, res) => {
 //!TESTING
 router.get('/', withAuth, async (req, res) => {
   try {
-    const storyData = await StoryLine.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['id', 'username'],
-          exclude: ['password'],
-        },
-        {
-          model: Story,
-          attributes: ['id'],
-        },
-      ],
-    });
+    const storyData = await StoryLine.findAll(
+      { where: { user_id: req.session.user_id } },
+      {
+        include: [
+          {
+            model: User,
+            attributes: ['id', 'username'],
+            exclude: ['password'],
+          },
+          {
+            model: Story,
+            attributes: ['id'],
+          },
+        ],
+      }
+    );
 
     // const storyline = storyData.get({ plain: true });
     res.json(storyData);
