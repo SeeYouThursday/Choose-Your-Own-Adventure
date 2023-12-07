@@ -35,7 +35,7 @@
 </div> }}
 
 <!-- Modal (can click out of) -->
-<div>
+<section>
   <button
     type='button'
     class='btn btn-primary'
@@ -53,11 +53,11 @@
     aria-hidden='true'>
     <div class='modal-dialog'>
       <div class='modal-content'>
+
         <div class='modal-header'>
           <h1 class='modal-title fs-5' id='startNewStory'>
             start a new adventure!
           </h1>
-
           <button
             type='button'
             class='btn-close'
@@ -65,6 +65,7 @@
             aria-label='Close'>
           </button>
         </div>
+
         <div class='modal-body'>
           <form id='start-story'>
             <label for='story-title'>name your adventure!</label>
@@ -72,8 +73,10 @@
             <!-- future dev - allow user to add characters -->
             <!-- <label for="characters">Provide Character Name:</label>
               <input type="text" name="characters" id="characters" /> -->
-          
+          </form>
         </div>
+
+
         <div class='modal-footer'>
           <button
             type='button'
@@ -81,14 +84,17 @@
             data-bs-dismiss='modal'>
             Close
           </button>
-          <button type='submit' id='save-begin' class='btn btn-primary'>save/start</button>
+          <button type='submit' id='save-begin' class='btn btn-primary' style="background-color:pink">save/start</button>
         </div>
-      </div></form>
+
+
+      </div>
     </div>
   </div>
+</section>
+
   <script
     src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js'
     integrity='sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL'
     crossorigin='anonymous'></script>
   <script src='js/start.js'></script>
-</div>
