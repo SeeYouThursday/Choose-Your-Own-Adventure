@@ -1,5 +1,4 @@
 // const { validation } = require('./helpers/validation');
-
 document
   .querySelector('body')
   .setAttribute(
@@ -29,6 +28,8 @@ async function loginFormHandler(event) {
     });
     //redirect to dashboard
     if (response.ok) {
+      const confetti = new JSConfetti();
+      await confetti.addConfetti();
       document.location.replace('/dashboard');
     } else {
       // alert(response.statusText);
