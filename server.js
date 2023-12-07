@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ defaultLayout: 'main' });
 
 const sess = {
-  secret: 'luck secret',
+  secret: process.env.SECRET,
   cookie: {
     maxAge: 20000000,
     httpOnly: true,
@@ -41,7 +41,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`
+  app.listen(PORT, () =>
+    console.log(`
 =============================================================================
 ************************ STROKE YOUR LUCK'S BACK END ************************          
 =============================================================================                           
@@ -66,6 +67,6 @@ sequelize.sync({ force: false }).then(() => {
              /^>                           ///,--~'-.
             '  ' 
 join the adventure:
-http://localhost:${PORT}`));
+http://localhost:${PORT}`)
+  );
 });
-
