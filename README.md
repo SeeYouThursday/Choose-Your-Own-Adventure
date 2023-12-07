@@ -138,7 +138,7 @@ nodemon server
 3. Open the [application]() deployed on [Heroku](https://heroku.com/home)
 4. Signup by creating a **username/password**
 5. *Create*, *update*, and *delete* stories through your dashboard
-6. *View* all stories via the homepage
+6. *View* all stories via the dashboard
 7. *Logout* to leave the application
 
 ### ![screenshot](./luck/branding/12.png)
@@ -230,9 +230,11 @@ Here's a list of technologies used:
 
 11. [Nodemon](https://www.npmjs.com/package/nodemon) - a Node.js tool that helps develop applications by automatically restarting the node application when file changes in the directory are detected.
 
-12. [Insomnia](https://insomnia.rest/) - an open source desktop application that assists in designing, debugging, and testing APIs (specifically in this instance, HTTP-based RESTful APIs).
+12. [js-confetti](https://www.npmjs.com/package/js-confetti) - Node.js library to add a little bit of spice to your buttons.
 
-13. [Heroku](https://heroku.com) - used to deploy, manage, and scale the application.
+13. [Insomnia](https://insomnia.rest/) - an open source desktop application that assists in designing, debugging, and testing APIs (specifically in this instance, HTTP-based RESTful APIs).
+
+14. [Heroku](https://heroku.com) - used to deploy, manage, and scale the application.
 
 ### ![license](./luck/branding/5.png)
 
