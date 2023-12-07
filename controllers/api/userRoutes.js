@@ -1,6 +1,23 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+
+//all users
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.findAll({
+            attributes: { exclude: ['password'] },
+        });
+        res.status(200).json(users);
+      } catch (err) {
+        res.status(500).json(err);
+        console.log(err);
+    }
+});
+
+
+
+
 //Create new user
 router.post('/', async (req, res) => {
   console.log(req.body);
@@ -15,7 +32,7 @@ router.post('/', async (req, res) => {
       // res.redirect('/dashboard');
       console.log(`
 =====================================================================
-********************** WELCOME BACK ADVENTURER **********************
+********************** NEW ADVENTURER CREATED! **********************
 =====================================================================      
           |                   |                  |                    
  _________|________________.=""_;=.______________|__________________
