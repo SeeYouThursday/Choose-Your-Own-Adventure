@@ -1,28 +1,57 @@
 <main class='form-signin text-center'>
-  <form id='signup-form'>
+  <form id='signup-form' class='needs-validation'>
     <h1 class='h3 mb-3 fw-normal text-light'>sign up today!</h1>
     {{! will update with image }}
 
     {{! username & password forms }}
     <div class='form-floating mb-3'>
-      <input type="text" class="form-control" id="username-signup" placeholder="username" autofocus="true">
+      <input
+        type='text'
+        class='form-control'
+        id='username-signup'
+        placeholder='username'
+        autofocus='true'
+        required
+      /><div class='invalid-feedback'>Username already exists.</div>
     </div>
 
     <div class='form-floating mb-3'>
-      <input type='password' class='form-control' id='password-signup' placeholder='password' autofocus='true'>
+      <input
+        type='password'
+        class='form-control'
+        id='password-signup'
+        placeholder='password'
+        autofocus='true'
+        required
+      />
     </div>
 
     <div class='form-floating mb-3'>
-      <input type='email' class='form-control' id='email-signup'placeholder='email@email.com' autofocus='true'>
+      <input
+        type='email'
+        class='form-control'
+        id='email-signup'
+        placeholder='email@email.com'
+        autofocus='true'
+        required
+      /><div class='invalid-feedback'>Email already exists.</div>
     </div>
 
-    <button class='w-100 btn btn-lg mb-3 text-light' style='background-color: pink' type='submit'>signup</button>
+    <button
+      class='w-100 btn btn-lg mb-3 text-light'
+      style='background-color: pink'
+      type='submit'
+    >signup</button>
     <a class='login-link text-light' href='/login'>login</a>
   </form>
 </main>
 
-  <div>
-    <img class="rounded img-fluid w-100" src="/images/chicken.png" height="400px">
-  </div>
+<div>
+  <img
+    class='rounded img-fluid w-100'
+    src='/images/chicken.png'
+    height='400px'
+  />
+</div>
 
 <script src='/js/signup.js'></script>

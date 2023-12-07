@@ -1,15 +1,14 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-
 //all users
 router.get('/', async (req, res) => {
-    try {
-        const users = await User.findAll({
-            attributes: { exclude: ['password'] },
-        });
-        res.status(200).json(users);
-        console.log(`
+  try {
+    const users = await User.findAll({
+      attributes: { exclude: ['password'] },
+    });
+    res.status(200).json(users);
+    console.log(`
 =====================================================================
 ********************* VIEWING ALL ADVENTURERS ***********************
 =====================================================================
@@ -34,13 +33,10 @@ router.get('/', async (req, res) => {
                 jgs ''-._|_|;:;_.-'' '::.  '"-
                   .:;.      .:.   ::.     '::.
     `);
-    } catch (err) {
+  } catch (err) {
     res.status(500).json(err);
-    }
+  }
 });
-
-
-
 
 //Create new user
 router.post('/', async (req, res) => {
@@ -77,7 +73,7 @@ ____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/
 ____/______/______/______/______/_____"=.o|o_.--""___/______/______/
 /______/______/______/______/______/______/______/______/______/____
 ********************************************************************
-      `)
+      `);
     });
   } catch (err) {
     console.log(err);
@@ -157,8 +153,7 @@ router.post('/logout', (req, res) => {
   console.log(`
 =====================================================================
 ********************** SAFE TRAVELS ADVENTURER **********************
-=====================================================================
-                          
+=====================================================================  
                                       sSSs
                                      S{'SSS
                                     sSS)sSSSs
@@ -172,7 +167,28 @@ router.post('/logout', (req, res) => {
                -          -~ '"~. _ ._ '_, _  _.=' ~     -
                 - _ ~- _-  _- ~-  _ -  _ ~ _ - - _ - _~ -~ -_
                _ -  -    _   -  _   -  _  -  _ -  - _  -  _
-  `)
+  `);
+});
+
+router.get('/validate/:username/:email', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        [Op.or]: [
+          { username: req.params.username },
+          { email: req.params.email },
+        ],
+      },
+    });
+
+    if (userData) {
+      res.json({ exists: true });
+    } else {
+      res.json({ exists: false });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

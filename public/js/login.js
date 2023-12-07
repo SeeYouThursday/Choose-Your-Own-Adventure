@@ -1,8 +1,14 @@
+// const { validation } = require('./helpers/validation');
+
 document
   .querySelector('body')
-  .setAttribute('style', "background-image: url('/images/login.png'); background-size: cover; height: 100vh; background-color: black;");
+  .setAttribute(
+    'style',
+    "background-image: url('/images/login.png'); background-size: cover; height: 100vh; background-color: black;"
+  );
 
-
+// check for validation before allowing form to be submitted
+// validation();
 
 //login submission form
 async function loginFormHandler(event) {
@@ -25,7 +31,21 @@ async function loginFormHandler(event) {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      // alert(response.statusText);
+      const loginAlert = document.getElementById('submit');
+      const loginError = document.getElementById('login-error');
+      const loginErrorExists = () =>
+        loginError
+          ? remove(loginError)
+          : loginAlert.insertAdjacentHTML(
+              'afterend',
+              "<div class='alert alert-warning' id='login-error' role='alert'>Incorrect username or password</div>"
+            );
+      loginErrorExists();
+      // loginAlert.classList.add('visible');
+      // <div class="alert alert-warning invisible" role="alert">
+      //   Incorrect username or password
+      // </div>;
     }
   }
 }
