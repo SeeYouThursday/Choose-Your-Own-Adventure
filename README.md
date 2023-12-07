@@ -69,10 +69,17 @@
   <img src="./luck/branding/luck-list.png"/>
 </p>
 
-<!-- ### ![team](./luck/branding/.png) -->
+### ![team](./luck/branding/adventure-team.png)
 <!-- <p align="center">
   <img src="./abductions/branding/probe-list.png"/>
 </p> -->
+
+<p align="center">
+  <a href="https://github.com/christiecamp"><img width="100px" alt="christiecamp" title="christiecamp" src="./luck/branding/christiecamp.png"/></a>
+  &#8287;&#8287;&#8287;&#8287;&#8287;
+  <a href="https://github.com/SeeYouThursday"><img width="100px" alt="seeyouthursday" title="seeyouthursday" src="./luck/branding/seeyouthursday.png"></a>
+  &#8287;&#8287;&#8287;&#8287;&#8287;
+  <a href="https://github.com/greenstone83"><img width="100px" alt="greenstone83" title="greenstone83" src="./luck/branding/greenstone83.png"/></a>
 
 #
 
@@ -193,7 +200,8 @@ Here's a list of technologies used:
 ### ![links](./luck/branding/6.png)
 
 ##### [*github repo*](https://github.com/seeyouthursday/choose-your-own-adventure)
-##### [*deployed app*](https://createyourownadventure-5cf1f78476c3.herokuapp.com/)
+##### [*deployed app*](https://createyourownadventure-5cf1f78476c3.herokuapp.com)
+##### [*app presentation*]()
 
 ### ![connect](./luck/branding/7.png)
 
