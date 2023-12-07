@@ -65,14 +65,21 @@
 
 ### ![luck-list](./luck/branding/11.png)
 
+<p align="center">
+  <img src="./luck/branding/luck-list.png"/>
+</p>
+
+### ![team](./luck/branding/adventure-team.png)
 <!-- <p align="center">
   <img src="./abductions/branding/probe-list.png"/>
 </p> -->
 
-<!-- ### ![team](./luck/branding/.png) -->
-<!-- <p align="center">
-  <img src="./abductions/branding/probe-list.png"/>
-</p> -->
+<p align="center">
+  <a href="https://github.com/christiecamp"><img width="100px" alt="christiecamp" title="christiecamp" src="./luck/branding/christiecamp.png"/></a>
+  &#8287;&#8287;&#8287;&#8287;&#8287;
+  <a href="https://github.com/SeeYouThursday"><img width="100px" alt="seeyouthursday" title="seeyouthursday" src="./luck/branding/seeyouthursday.png"></a>
+  &#8287;&#8287;&#8287;&#8287;&#8287;
+  <a href="https://github.com/greenstone83"><img width="100px" alt="greenstone83" title="greenstone83" src="./luck/branding/greenstone83.png"/></a>
 
 #
 
@@ -138,9 +145,9 @@ nodemon server
 
 ##### *screenshot demonstrates `STROKE OF LUCK's` back end, testing all routes with **Insomnia**, and the functional application deployed on **Heroku***
 
-<!-- <p align="center">
+<p align="center">
 <img src="./luck/demo/ss.png"/>
-</p> -->
+</p>
 
 ### ![demo](./luck/branding/13.png)
 
@@ -152,7 +159,48 @@ nodemon server
 
 There are different tools available that can test reading/writing operations in a web browser - in this application we use [Insomnia](https://insomnia.rest/), a *REST client* that makes it easy to send **HTTP requests** to an API and view response details.
 
-<!-- add testing elements -->
+1. After installing Insomnia, open a new document.
+
+2. Interact with `STROKE OF LUCK'S` back end by testing the below commands:
+
+##### **GET** all users & stories
+```json
+http://localhost:3001/api/user
+```
+```json
+http://localhost:3001/api/story
+```
+
+##### **GET** user by *id*
+```json
+http://localhost:3001/api/user/1
+```
+
+##### **CREATE** story
+```json
+http://localhost:3001/api/story/
+```
+```json
+{
+	"title": "",
+	"content": ""
+}
+```
+
+##### **UPDATE** story
+```json
+http://localhost:3013/api/post/1
+```
+```json
+{
+  "title": "",
+  "content": ""
+}
+```
+##### **DELETE** story
+```json
+http://localhost:3013/api/story/
+```
 
 #
 
@@ -193,7 +241,8 @@ Here's a list of technologies used:
 ### ![links](./luck/branding/6.png)
 
 ##### [*github repo*](https://github.com/seeyouthursday/choose-your-own-adventure)
-##### [*deployed app*](https://createyourownadventure-5cf1f78476c3.herokuapp.com/)
+##### [*deployed app*](https://createyourownadventure-5cf1f78476c3.herokuapp.com)
+##### [*app presentation*]()
 
 ### ![connect](./luck/branding/7.png)
 
