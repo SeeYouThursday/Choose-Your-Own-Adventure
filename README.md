@@ -230,9 +230,11 @@ Here's a list of technologies used:
 
 11. [Nodemon](https://www.npmjs.com/package/nodemon) - a Node.js tool that helps develop applications by automatically restarting the node application when file changes in the directory are detected.
 
-12. [Insomnia](https://insomnia.rest/) - an open source desktop application that assists in designing, debugging, and testing APIs (specifically in this instance, HTTP-based RESTful APIs).
+12. [js-confetti](https://www.npmjs.com/package/js-confetti) - Node.js library to add a little bit of spice to your buttons.
 
-13. [Heroku](https://heroku.com) - used to deploy, manage, and scale the application.
+13. [Insomnia](https://insomnia.rest/) - an open source desktop application that assists in designing, debugging, and testing APIs (specifically in this instance, HTTP-based RESTful APIs).
+
+14. [Heroku](https://heroku.com) - used to deploy, manage, and scale the application.
 
 ### ![license](./luck/branding/5.png)
 
