@@ -2,13 +2,16 @@
 const story_meta = document.getElementById('save-exit');
 // initial story_id below
 let story_id = story_meta.getAttribute('data-story-id');
+let storyLine = story_meta.getAttribute('data-id');
+let id = document.getElementById('story-choice').getAttribute('data-user-id');
 
 //update story_id
 const updateStoryId = () => {
   console.log(story_id);
-  if (story_id === 10) {
-    return;
-  }
+  // if (story_id > 8) {
+  //   window.location.replace(`/end/${storyLine}`);
+  //   return;
+  // }
   let updatedStoryId = ++story_id;
   return updatedStoryId.toString();
 };
@@ -18,7 +21,7 @@ const updateStoryId = () => {
 //will hold the story_line
 const continuingStory = [];
 //get initial story_line from data-id
-let storyLine = story_meta.getAttribute('data-id');
+// let storyLine = story_meta.getAttribute('data-id');
 continuingStory.push(storyLine);
 console.log(`initial update ${continuingStory}`);
 //update story_line
@@ -47,14 +50,22 @@ const storyToStore = () => {
   console.log(147, updatedStory);
 };
 
+// const storyIdToEndCheck = () => {
+//   if(storyId)
+// }
+
 // let storyIdToReturn = updateStoryId();
 const updateDb = async () => {
   try {
+    //!Change to match the number of story object options
+
     let storyIdToReturn = updateStoryId();
+    if (storyIdToReturn > 8) {
+      window.location.replace(`/end/${id}`);
+      return;
+    }
     console.log(storyIdToReturn, 155);
-    let id = document
-      .getElementById('story-choice')
-      .getAttribute('data-user-id');
+
     console.log(id);
 
     const updated = await fetch(`/api/storyline/update/${id}`, {
@@ -111,30 +122,34 @@ const handleBtnandDb = async (event) => {
   await updateDb();
   await verifyUpdate();
 };
-const pingPongNextPage = () => {
-  const button = document.getElementById('continue');
-  const pingPong = button.dataset.pingPong === 'false';
-  const storylineId = window.location.pathname.split('/');
-  const pingpongLoc = storylineId[storylineId.length - 1];
+// const pingPongNextPage = () => {
+//   const button = document.getElementById('continue');
+//   const pingPong = button.dataset.pingPong === 'false';
+//   const storylineId = window.location.pathname.split('/');
+//   const pingpongLoc = storylineId[storylineId.length - 1];
 
-  const baseUrl = window.location.origin;
-  const nextPageUrl = pingPong
-    ? `${baseUrl}/storyline/pingpong/${pingpongLoc}`
-    : `${baseUrl}/storyline/${pingpongLoc}`;
+//   const baseUrl = window.location.origin;
+//   const nextPageUrl = pingPong
+//     ? `${baseUrl}/storyline/pingpong/${pingpongLoc}`
+//     : `${baseUrl}/storyline/${pingpongLoc}`;
 
-  window.location.replace(nextPageUrl);
-};
-//Event Listeners
+//   window.location.replace(nextPageUrl);
+// };
+
+////////Event Listeners
 // document
 //   .getElementById('story-choice')
 //   .addEventListener('submit', btnSubmitHandler);
 
 //btns submit form with their value, but do not reload page
-document.getElementById('continue').addEventListener('click', async () => {
+document.getElementById('continue').addEventListener('click', () => {
   // await dbUpdate();
   // await verifyUpdate();
   // window.location.replace(`/storyline/`);
-  pingPongNextPage();
+  if (storyIdToReturn > 8) {
+    window.location.replace(`/end/${id}`);
+    return;
+  }
 });
 
 //Save and Exit Function
