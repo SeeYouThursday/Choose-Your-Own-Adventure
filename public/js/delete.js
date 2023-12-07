@@ -1,29 +1,29 @@
 //delete post
 async function deleteFormHandler(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    //get values
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+  //get values
+  const id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
 
-    //DELETE request to api endpoint
-    const response = await fetch(`/api/storyline/${id}`, {
-        method: 'DELETE',
-        body: JSON.stringify({
-            story_id: id,
-        }),
-        headers: { 'Content-Type': 'application/json' },
-    });
+  //DELETE request to api endpoint
+  const response = await fetch(`/api/storyline/${id}`, {
+    method: 'DELETE',
+    body: JSON.stringify({
+      story_id: id,
+    }),
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-    //redirect to dashboard
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert(response.statusText);
-    }
-};
+  //redirect to dashboard
+  if (response.ok) {
+    document.location.replace('/dashboard');
+  } else {
+    alert(response.statusText);
+  }
+}
 
 document
-    .querySelector('.delete-btn')
-    .addEventListener('click', deleteFormHandler);
+  .querySelector('.delete-btn')
+  .addEventListener('click', deleteFormHandler);

@@ -1,0 +1,76 @@
+<div>
+  <section class='container'>
+    <p class="text-light">scenario texts</p>
+    <form
+      id='story-choice'
+      data-story-choice-set='{{story_id}}'
+      data-story-id='{{story_id}}'
+      method='PUT'
+      data-user-id='{{id}}'
+    >
+
+      <input
+        type='radio'
+        class='btn-check next-choice'
+        name='options-outlined'
+        id='success-outlined1'
+        value='{{story.Option1}}'
+        autocomplete='off'>
+      <label
+        class='btn btn-outline-success'
+        for='success-outlined1'>{{story.Option1}}
+      </label>
+      <br>
+
+      <input
+        type='radio'
+        class='btn-check next-choice'
+        name='options-outlined'
+        id='success-outlined2'
+        value='{{story.Option2}}'
+        autocomplete='off'/>
+      <label
+        class='btn btn-outline-success'
+        for='success-outlined2'
+      >{{story.Option2}}</label>
+    </form>
+    <div>
+      {{!-- <button type='BUTTON' id='continue' data-pingpong='true'>Continue</button> --}}
+
+      <button
+        id='save-exit'
+        {{! if the storyline has just started, then set the data-id to 1 }}
+        data-id='{{story_line}}'
+        data-story-id='{{story_id}}'
+        data-story-title='{{title}}'
+      >'Save Progress (and Exit?)!'</button>
+    </div>
+
+
+      <div>
+        <br><br>
+        <button type='submit' style='background-color: pink' id='continue' data-pingpong='true'>continue</button>
+
+        <button
+          id='save-story'
+          style='background-color:pink'
+          {{! if the storyline has just started, then set the data-id to 1 }}
+          data-id='{{story_line}}'
+          data-story-id='{{story_id}}'
+          data-story-title='{{title}}'>save</button>
+
+          <button
+          id='delete-story'
+          class='delete-btn'
+          style='background-color:pink'
+          {{! if the storyline has just started, then set the data-id to 1 }}
+          data-id='{{story_line}}'
+          data-story-id='{{story_id}}'
+          data-story-title='{{title}}'>delete</button>
+      </div>
+
+    </form>
+  </section>
+
+</div>
+<script src='/js/storyhandling.js'></script>

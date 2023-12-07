@@ -4,6 +4,7 @@ const landing = require('./landing-route.js');
 const apiRoutes = require('./api');
 const storyLineRoutes = require('./storyLineRenderRoute.js');
 const storyRoutes = require('./storyRenderRoute.js');
+const pingpongRoutes = require('./pingpong.js');
 //View routes
 router.use('/', homeRoutes);
 
@@ -14,4 +15,6 @@ router.use('/storyline', storyLineRoutes);
 
 router.use('/landing-route', landing);
 router.use('/story', storyRoutes);
+router.use('/pingpong', pingpongRoutes);
+
 module.exports = router;

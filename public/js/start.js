@@ -37,7 +37,7 @@ const startNewAdventureHandler = async (event) => {
           if (maxId === 0) {
             document.location.replace(`/storyline/${maxId ++ }`);
           } else if (maxId !== -Infinity) {
-            // document.location.replace(`/stosryline/${maxId}`);
+            document.location.replace(`/storyline/${maxId}`);
           } else {
             console.log('uh-oh error');
           }
