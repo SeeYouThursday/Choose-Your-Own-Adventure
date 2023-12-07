@@ -47,11 +47,11 @@ const storyToStore = () => {
   console.log(147, updatedStory);
 };
 
-let storyIdToReturn = updateStoryId();
-console.log(storyIdToReturn, 155);
+// let storyIdToReturn = updateStoryId();
 const updateDb = async () => {
   try {
     let storyIdToReturn = updateStoryId();
+    console.log(storyIdToReturn, 155);
     let id = document
       .getElementById('story-choice')
       .getAttribute('data-user-id');
@@ -94,7 +94,7 @@ const btnSubmitHandler = (event) => {
 
 const verifyUpdate = async () => {
   try {
-    const response = await fetch(`${window.location.origin}/api/storyline/1`, {
+    const response = await fetch(`/api/storyline/`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
