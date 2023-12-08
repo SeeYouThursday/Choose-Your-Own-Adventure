@@ -170,15 +170,28 @@ router.post('/logout', (req, res) => {
   `);
 });
 
-router.get('/validate/:username/:email', async (req, res) => {
+router.get('/email/:email', async (req, res) => {
   try {
     const userData = await User.findOne({
-      where: {
-        [Op.or]: [
-          { username: req.params.username },
-          { email: req.params.email },
-        ],
-      },
+      where: { email: req.params.email },
+    });
+
+    console.log(userData); // Log the userData to the console
+
+    if (userData) {
+      res.json({ exists: true });
+    } else {
+      res.json({ exists: false });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/username/:username/', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: { username: req.params.username },
     });
 
     if (userData) {

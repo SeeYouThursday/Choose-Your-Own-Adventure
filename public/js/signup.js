@@ -2,22 +2,80 @@
 
 document
   .querySelector('body')
-  .setAttribute('style', "background-image: url('/images/signup.png'); background-size: cover; height: 100vh; background-color: black;");
+  .setAttribute(
+    'style',
+    "background-image: url('/images/signup.png'); background-size: cover; height: 100vh; background-color: black;"
+  );
+
+const usernameCheck = async () => {
+  const username = document.querySelector('#username-signup').value.trim();
+  const response = await fetch(`/api/users/username/${username}`);
+
+  if (!response.ok) {
+    console.error(`Error: ${response.status}`);
+    return false;
+  }
+
+  const validateUsernameData = await response.json();
+
+  return validateUsernameData.exists; // Return true if the username already exists
+};
+
+const emailCheck = async () => {
+  const email = document.querySelector('#email-signup').value.trim();
+  const response = await fetch(`/api/users/email/${email}`);
+
+  if (!response.ok) {
+    const confetti = new JSConfetti();
+      await confetti.addConfetti({
+        emojis: ['🐓'],
+        emojiSize: 40,
+        confettiNumber: 100,
+    });
+    console.error(`Error: ${response.status}`);
+    return false;
+  }
+
+  const validateEmailData = await response.json();
+
+  return validateEmailData.exists; // Return true if the email already exists
+};
 
 //signup form
 async function signupFormHandler(event) {
   event.preventDefault();
-  //validate form
-  // validation();
-  //collect values
-  const username = document.querySelector('#username-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
-  console.log(username);
-  console.log(password);
-  console.log(email);
 
-  //POST request to api endpoint
+  // Collect values
+  const usernameElement = document.querySelector('#username-signup');
+  const username = usernameElement.value.trim();
+  const password = document.querySelector('#password-signup').value.trim();
+  const emailElement = document.querySelector('#email-signup');
+  const email = emailElement.value.trim();
+
+  // Check if username and email are unique
+  const [usernameExists, emailExists] = await Promise.all([
+    usernameCheck(),
+    emailCheck(),
+  ]);
+
+  if (usernameExists) {
+    usernameElement.classList.add('is-invalid'); // Add the "is-invalid" class to the username input element
+    console.log('Username already exists');
+  }
+
+  if (emailExists) {
+    emailElement.classList.add('is-invalid'); // Add the "is-invalid" class to the email input element
+    console.log('Email already exists');
+  }
+
+  if (usernameExists || emailExists) {
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000); // Reload the page after 2 seconds
+    return; // Return early to prevent the POST request from being sent
+  }
+
+  // POST request to api endpoint
   if (username && password && email) {
     const response = await fetch('/api/users', {
       method: 'POST',
@@ -28,19 +86,15 @@ async function signupFormHandler(event) {
       }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log(response);
-    //redirect to dashboard
+
+    // Log the response
     if (response.ok) {
-      const confetti = new JSConfetti();
-      await confetti.addConfetti({
-        emojis: ['🐓'],
-        emojiSize: 40,
-        confettiNumber: 100,
-    });
-      document.location.replace('/dashboard');
+      console.log('Signup successful');
+      window.location.replace('/dashboard');
     } else {
-      //TODO: change to a modal!
-      alert(response.statusText);
+      console.log('Signup failed');
+      const responseData = await response.json();
+      console.log(responseData);
     }
   }
 }
