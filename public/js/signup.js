@@ -2,8 +2,33 @@
 
 document
   .querySelector('body')
-  .setAttribute('style', "background-image: url('/images/signup.png'); background-size: cover; height: 100vh; background-color: black;");
+  .setAttribute(
+    'style',
+    "background-image: url('/images/signup.png'); background-size: cover; height: 100vh; background-color: black;"
+  );
 
+const usernameCheck = async () => {
+  const usernameInput = document.querySelector('#username-signup');
+  const username = usernameInput.value.trim();
+  const response = await fetch(`/api/users/${username}`);
+
+  const validateUsernameData = await response.json();
+  // emailInput.classList.add('is-invalid');
+
+  // checks for server side errors
+  return validateUsernameData;
+};
+
+const emailCheck = async () => {
+  const emailInput = document.querySelector('#email-signup');
+  const email = emailInput.value.trim();
+  const response = await fetch(`/api/users/${email}`);
+
+  const validateUsernameData = await response.json();
+  // emailInput.classList.add('is-invalid');
+  // checks for server side errors
+  return validateUsernameData;
+};
 //signup form
 async function signupFormHandler(event) {
   event.preventDefault();
@@ -19,6 +44,19 @@ async function signupFormHandler(event) {
 
   //POST request to api endpoint
   if (username && password && email) {
+    const validateUsernameData = usernameCheck();
+    const validateEmailData = emailCheck();
+
+    if (validateUsernameData) {
+      const usernameInput = document.querySelector('#username-signup');
+      usernameInput.classList.add('is-invalid');
+    } else if (validateEmailData) {
+      const emailInput = document.querySelector('#email-signup');
+      emailInput.classList.add('is-invalid');
+    } 
+    if (validateEmailData || validateUsernameData) {
+      return;
+    }
     const response = await fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({
@@ -36,7 +74,7 @@ async function signupFormHandler(event) {
         emojis: ['🐓'],
         emojiSize: 40,
         confettiNumber: 100,
-    });
+      });
       document.location.replace('/dashboard');
     } else {
       //TODO: change to a modal!
