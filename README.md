@@ -20,7 +20,6 @@
 
 - [OVERVIEW](#overview)
   - [*user story*](#user-story)
-  - [*concept design*](#concept-design)
   - [*luck list*](#luck-list)
   - [*the adventure team*](#team)
 - [INSTALLATION](#installation)
@@ -57,7 +56,7 @@
   <img src="./luck/branding/user-story.png"/>
 </p>
 
-### ![concept-design](./luck/branding/10.png)
+<!-- ### ![concept-design](./luck/branding/10.png) -->
 
 <!-- <p align="center">
   <img src="./abductions/branding/ac.png"/>
@@ -150,6 +149,7 @@ nodemon server
 </p>
 
 ### ![demo](./luck/branding/13.png)
+coming soon!
 
 #
 
@@ -244,7 +244,7 @@ Here's a list of technologies used:
 
 ##### [*github repo*](https://github.com/seeyouthursday/choose-your-own-adventure)
 ##### [*deployed app*](https://createyourownadventure-5cf1f78476c3.herokuapp.com)
-##### [*app presentation*]()
+##### [*app presentation*](https://www.canva.com/design/DAF1sd_tCW8/cqH6jypPAPhBIU8J-uUprw/view?utm_content=DAF1sd_tCW8&utm_campaign=share_your_design&utm_medium=link&utm_source=shareyourdesignpanel)
 
 ### ![connect](./luck/branding/7.png)
 
