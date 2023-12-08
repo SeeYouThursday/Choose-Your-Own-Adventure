@@ -26,6 +26,12 @@ const emailCheck = async () => {
   const response = await fetch(`/api/users/email/${email}`);
 
   if (!response.ok) {
+    const confetti = new JSConfetti();
+      await confetti.addConfetti({
+        emojis: ['🐓'],
+        emojiSize: 40,
+        confettiNumber: 100,
+    });
     console.error(`Error: ${response.status}`);
     return false;
   }
