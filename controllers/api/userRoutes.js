@@ -170,11 +170,13 @@ router.post('/logout', (req, res) => {
   `);
 });
 
-router.get('/:email', async (req, res) => {
+router.get('/email/:email', async (req, res) => {
   try {
     const userData = await User.findOne({
       where: { email: req.params.email },
     });
+
+    console.log(userData); // Log the userData to the console
 
     if (userData) {
       res.json({ exists: true });
@@ -186,7 +188,7 @@ router.get('/:email', async (req, res) => {
   }
 });
 
-router.get('/:username/', async (req, res) => {
+router.get('/username/:username/', async (req, res) => {
   try {
     const userData = await User.findOne({
       where: { username: req.params.username },
